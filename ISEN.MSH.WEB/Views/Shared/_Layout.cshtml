@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Home - Bizz Group</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/styles.css")" />
+<script type="text/javascript" src="@Url.Content("~/Scripts/js/jquery/jquery-1.8.2.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/js/cufon/fonts/Myriad_Pro_Bold_700.font.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/js/cufon/fonts/Myriad_Pro_Bold_700.font.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/js/cufon/fonts/Myriad_Pro_Regular_400.font.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/js/cufon/fonts/Times_New_Roman_400.font.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/js/service.js")"></script>
+<!--[if lt IE 7]>
+<![if gte IE 5.5]>
+<script type="text/javascript" src="js/fixPNG/fixpng.js"></script>
+<style type="text/css">
+.iePNG, img { filter:expression(fixPNG(this,'js/fixPNG/')); }
+.iePNG a { position: relative; }
+</style>
+<![endif]>
+<![endif]-->
+</head>
+<body>
+<div id="header">
+	<div id="top-header">
+		<div id="company-logo">
+			<h1><img src="@Url.Content("~/Content/images/logo-1.png")" alt="BIZZ GROUP" id="logo" /></h1>
+			<h2>Premium Business Solutions</h2>
+		</div>
+		<ul id="main-navigation">
+			<li class="active"><a href="index.html">首页</a></li>
+			<li><a href="about.html">关于</a></li>
+			<li><a href="articles.html">Articles</a></li>
+			<li><a href="contacts.html">联系我们</a></li>
+			<li><a href="sitemap.html" class="last">网站导航</a></li>
+		</ul>
+		<div id="add-navigation">
+			<a href="index.html"><img src="@Url.Content("~/Content/images/home-icon.png")" alt="" /></a>
+			<a href="contacts.html"><img src="@Url.Content("~/Content/images/mail-icon.png")" alt="" /></a>
+			<a href="sitemap.html"><img src="@Url.Content("~/Content/images/misc-icon.png")" alt="" /></a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="header-banner-wrap">
+		<div id="header-banner">
+			<h2>We justify even<br/> the most bold<br/> <span>expectations<strong>!</strong></span></h2>
+			<a href="#" class="big-button iePNG">Read more</a><img src="@Url.Content("~/Content/images/globe.png")" id="globe" alt="" />
+		</div>
+	</div>
+</div>
+@RenderBody()
+<div id="footer">
+	<a href="http://www.cssmoban.com/" target="_blank" >网站模板</a> from cssMoban.com<br/>
+	<a href="http://www.cssmoban.com/" target="_blank">cssMoban.com</a> provided by cssMoban.com
+</div>
+</body>
+</html>

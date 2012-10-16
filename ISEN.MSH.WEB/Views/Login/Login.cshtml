@@ -1,0 +1,133 @@
+﻿@model ISEN.MSH.Nhibernate.Models.UserInfo
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>登录</title>
+    <!--                       CSS                       -->
+    <!-- Reset Stylesheet -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/reset.css")" type="text/css" media="screen" />
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/style.css")" type="text/css" media="screen" />
+    <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/invalid.css")" type="text/css" media="screen" />
+    <!--                       Javascripts                       -->
+    <!-- jQuery -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-1.8.2.js")"></script>
+    <!-- jQuery Configuration -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/simpla.jquery.configuration.js")"></script>
+    <!-- Facebox jQuery Plugin -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/facebox.js")"></script>
+    <!-- jQuery WYSIWYG Plugin -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery.wysiwyg.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Cookie.js")"></script>
+    <script type="text/javascript">
+        function doLogin() {
+            userName = $("#txtuserName").val();
+            password = $("#txtpassword").val();
+
+            /*
+            if (userName == "") {
+                $("#errorMessage").css("display", "");
+                $("#errorMessageContent").html("请输入用户名");
+                $("#txtuserName").focus();
+                return;
+            }
+            if (password == "") {
+                $("#errorMessage").css("display", "");
+                $("#errorMessageContent").html("请输入密码");
+                $("#txtpassword").focus();
+                return;
+            }
+            */
+
+            if ($("#chkremember-passsword").attr("checked")) {
+                Cookies.set("userName", userName);
+                Cookies.set("password", password);
+            }
+            else {
+                Cookies.clear("userName");
+                Cookies.clear("password");
+            }
+            $("form").submit();
+        }
+        function getRememberInfo() {
+            try {
+                var userName = "";
+                var userPassword = "";
+                userName = Cookies.get("userName");
+                password = Cookies.get("password");
+                $("#txtuserName").val(userName);
+                $("#txtpassword").val(password);
+            } catch (err) {
+            }
+        }
+        $().ready(function () {
+            getRememberInfo();
+        })
+    </script>
+</head>
+<body id="login">
+    <div id="login-wrapper" class="png_bg">
+        <div id="login-top">
+            <h1>
+                登录</h1>
+            <!-- Logo (221px width) -->
+            <a href="/admin/login">
+                <img id="logo" src="@Url.Content("~/Content/images/logo.png")" alt="Simpla Admin logo" /></a>
+        </div>
+        <!-- End #logn-top -->
+        <div id="login-content">
+        @using (Html.BeginForm())
+        {
+            if (@Html.ValidationSummary(true) != null || @Html.ValidationMessageFor(m => m.Account)!=null || @Html.ValidationMessageFor(m => m.Password)!=null)
+            { 
+                <div class="notification information png_bg" style="">
+                    <div> 
+                        @if(@Html.ValidationMessageFor(m => m.Account)!=null)
+                        {
+                            @Html.ValidationMessageFor(m => m.Account)
+                        }
+                        else if (@Html.ValidationMessageFor(m => m.Password) != null)
+                        {
+                            @Html.ValidationMessageFor(m => m.Password)
+                        }
+                        else
+                        {
+                            @Html.Raw(Html.ValidationMessageFor(m => m.IsEnabled).ToString())
+                        }
+                    </div>
+                </div>
+            }    
+            <p>
+                <label>用户名</label>
+                @Html.TextBoxFor(m => m.Account, new { @class = "text-input", @id = "txtuserName", @type = "text" })
+            </p>
+            <div class="clear">
+            </div>
+            <p>
+                <label>密码</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "text-input", @id = "txtpassword", @type = "password" })
+            </p>
+            <div class="clear">
+            </div>
+            <p id="remember-password">
+                <input type="checkbox" name="remember-passsword" id="chkremember-passsword" checked="checked" />
+                记住用户名
+            </p>
+            <div class="clear">
+            </div>
+            <p>
+                <input class="button" type="button" value="登录" onclick="doLogin();return;" />
+            </p>
+        
+        }
+        </div>
+        <!-- End #login-content -->
+    </div>
+    <!-- End #login-wrapper -->
+</body>
+</html>

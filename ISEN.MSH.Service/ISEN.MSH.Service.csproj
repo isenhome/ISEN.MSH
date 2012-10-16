@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{89ED86CD-A4E3-47A6-9675-9BAC481E7BEC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ISEN.MSH.Service</RootNamespace>
+    <AssemblyName>ISEN.MSH.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GenericManagerBase.cs" />
+    <Compile Include="IGenericManager.cs" />
+    <Compile Include="Implements\UserInfoManager.cs" />
+    <Compile Include="Implements\BaseFlowManager.cs" />
+    <Compile Include="Implements\FlowVertexInstancesManager.cs" />
+    <Compile Include="Implements\FlowRequirementInstancesManager.cs" />
+    <Compile Include="Implements\BaseFlowRequirementManager.cs" />
+    <Compile Include="Interfaces\IUserInfoManager.cs" />
+    <Compile Include="Interfaces\IBaseFlowManager.cs" />
+    <Compile Include="Interfaces\IFlowRequirementInstancesManager.cs" />
+    <Compile Include="Interfaces\IBaseFlowRequirementManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\Service.Base.cfg.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\Service.cfg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ISEN.MSH.Dao\ISEN.MSH.Dao.csproj">
+      <Project>{EAF1B024-8290-479A-821B-31D3FB815912}</Project>
+      <Name>ISEN.MSH.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISEN.MSH.MODELS\ISEN.MSH.Nhibernate.Models.csproj">
+      <Project>{10C9F6F3-E451-441A-8572-C8E409D1C03A}</Project>
+      <Name>ISEN.MSH.Nhibernate.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\IBaseFlowArcManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\IBaseFlowVertexManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\IFlowInstancesManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\IFlowVertexInstancesManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Implements\BaseFlowArcManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Implements\BaseFlowVertexManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Implements\FlowInstancesManager.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

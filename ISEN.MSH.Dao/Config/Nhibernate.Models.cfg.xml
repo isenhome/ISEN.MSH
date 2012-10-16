@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+	<object id="Repository.BaseFlowArc" type="ISEN.MSH.Dao.Implements.BaseFlowArcRepository, ISEN.MSH.Dao">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="Repository.BaseFlowVertex" type="ISEN.MSH.Dao.Implements.BaseFlowVertexRepository, ISEN.MSH.Dao">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="Repository.BaseFlow" type="ISEN.MSH.Dao.Implements.BaseFlowRepository, ISEN.MSH.Dao">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="Repository.BaseFlowRequirement" type="ISEN.MSH.Dao.Implements.BaseFlowRequirementRepository, ISEN.MSH.Dao">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="Repository.FlowInstances" type="ISEN.MSH.Dao.Implements.FlowInstancesRepository, ISEN.MSH.Dao">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	<object id="Repository.FlowVertexInstances" type="ISEN.MSH.Dao.Implements.FlowVertexInstancesRepository, ISEN.MSH.Dao">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	
+	<object id="Repository.FlowRequirementInstances" type="ISEN.MSH.Dao.Implements.FlowRequirementInstancesRepository, ISEN.MSH.Dao">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+	
+	<object id="Repository.UserInfo" type="ISEN.MSH.Dao.Implements.UserInfoRepository, ISEN.MSH.Dao">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+</objects>
