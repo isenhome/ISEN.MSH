@@ -147,7 +147,7 @@
             $(document.body).trigger('close.facebox');
             return false;
         }
-    })
+    });
 
     /*
     * Public, $.fn methods
@@ -250,7 +250,10 @@
         if (href.match(/#/)) {
             var url = window.location.href.split('#')[0]
             var target = href.replace(url, '')
-            $.facebox.reveal($(target).clone().show(), klass)
+            temp = $(target).clone();
+            temp.find(".date-picker").datepicker();
+            temp.find(".date-picker").datepicker("option", "dateFormat", "yy-mm-dd");
+            $.facebox.reveal(temp.show(), klass)
 
             // image
         } else if (href.match($.facebox.settings.imageTypesRegexp)) {
@@ -316,8 +319,8 @@
         })
     })
     $(document).bind("afterReveal.facebox", function () {
-        $(".date-picker").datepicker();
-        $(".date-picker").datepicker("option", "dateFormat", "yy-mm-dd");
+        //$(".date-picker").datepicker();
+        //$(".date-picker").datepicker("option", "dateFormat", "yy-mm-dd");
     });
 
 })(jQuery);

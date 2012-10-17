@@ -12,7 +12,7 @@
 <link href="@Url.Content("~/Scripts/Contextmenu/skins/default/AeroWindow-Contextmenu.css")" rel="stylesheet"/>
 <script src="@Url.Content("~/Scripts/Contextmenu/js/AeroWindow-Contextmenu.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/dateFormat.js")" type="text/javascript"></script>
-
+    
 <script type="text/javascript">
     $(document).ready(function () {
         var date = new Date();
@@ -41,9 +41,12 @@
                         icon: "../../../scripts/Contextmenu/skins/default/contextmenu/icons/new.png",
                         disable: 0, //新增加true/false
                         action: function () {
+                            $("a[href='#newdlgmeet']").remove();
                             $("<a href='#newdlgmeet' display='none'>#newdlgmeet</a>").appendTo(document.body);
                             $("a[href*='#newdlgmeet']").facebox();
                             $("a[href*='#newdlgmeet']").trigger("click");
+                            //fillFaceboxFromHref("#newdlgmeet",)
+
                             $("#facebox input[name='work_isallday']").attr("checked", allDay);
                             $("#facebox input[name='work_startdate']").val(new DateFormat("yyyy-MM-dd").format(start));
                             $("#facebox input[name='work_enddate']").val(new DateFormat("yyyy-MM-dd").format(end));
