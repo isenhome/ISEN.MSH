@@ -12,15 +12,17 @@
 <link href="@Url.Content("~/Scripts/Contextmenu/skins/default/AeroWindow-Contextmenu.css")" rel="stylesheet"/>
 <script src="@Url.Content("~/Scripts/Contextmenu/js/AeroWindow-Contextmenu.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/dateFormat.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/guid.js")" type="text/javascript"></script>
     
 <script type="text/javascript">
+    var calendar;
     $(document).ready(function () {
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
 
-        var calendar = $('#calendar').fullCalendar({
+        calendar = $('#calendar').fullCalendar({
             theme: true,
             header: {
                 left: 'prev,next today',
@@ -29,6 +31,7 @@
             },
             selectable: true,
             selectHelper: true,
+            axisFormat: "H(:mm)tt",
             select: function (start, end, allDay) {
                 $(".WincontextMenu").remove();
                 $(".fc-cell-overlay,.fc-select-helper").WinContextMenu(
@@ -41,25 +44,24 @@
                         icon: "../../../scripts/Contextmenu/skins/default/contextmenu/icons/new.png",
                         disable: 0, //新增加true/false
                         action: function () {
-                            $("a[href='#newdlgmeet']").remove();
-                            $("<a href='#newdlgmeet' display='none'>#newdlgmeet</a>").appendTo(document.body);
-                            $("a[href*='#newdlgmeet']").facebox();
-                            $("a[href*='#newdlgmeet']").trigger("click");
-                            //fillFaceboxFromHref("#newdlgmeet",)
-
+                            $("a[href='#newdlgwork']").remove();
+                            $("<a href='#newdlgwork' display='none'>#newdlgmeet</a>").appendTo(document.body);
+                            $("a[href*='#newdlgwork']").facebox();
+                            $("a[href*='#newdlgwork']").trigger("click");
                             $("#facebox input[name='work_isallday']").attr("checked", allDay);
                             $("#facebox input[name='work_startdate']").val(new DateFormat("yyyy-MM-dd").format(start));
                             $("#facebox input[name='work_enddate']").val(new DateFormat("yyyy-MM-dd").format(end));
                             $("#facebox select:eq(0)").val(new DateFormat("HH:mm").format(start));
                             $("#facebox select:eq(1)").val(new DateFormat("HH:mm").format(end));
                         }
-                    },
-		            {
-		                id: "newMeeting",
-		                text: "发起会议",
-		                icon: "../../../scripts/Contextmenu/skins/default/contextmenu/icons/Calendar.png",
-		                action: function () { alert('Second-item2') } //按照项添加
-		            }],
+                    }
+                    //		            {
+                    //		                id: "newMeeting",
+                    //		                text: "发起会议",
+                    //		                icon: "../../../scripts/Contextmenu/skins/default/contextmenu/icons/Calendar.png",
+                    //		                action: function () { alert('Second-item2') } //按照项添加
+                    //		            }
+                    ],
                     action: function (e) {
                         alert(e.id);
                     } //自由设计项事件回调
@@ -77,37 +79,163 @@
                         text: "编辑",
                         icon: "../../../scripts/Contextmenu/skins/default/contextmenu/icons/Pinion.png",
                         disable: 0, //新增加true/false
-                        action: function () { alert('first-item1') } //按照项添加
+                        action: function () { getWork(calEvent); } //按照项添加
                     },
 		            {
 		                id: "delete",
 		                text: "删除",
 		                icon: "../../../scripts/Contextmenu/skins/default/contextmenu/icons/Left-right.png",
-		                action: function () { alert('Second-item2') } //按照项添加
+		                action: function () { removeWork(calEvent); } //按照项添加
 		            }],
                     action: function (e) {
                         alert(e.id);
                     } //自由设计项事件回调
                 });
             },
+            eventResize: function (event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view) {
+                resizeWork(event, revertFunc);
+            },
+            eventDrop: function (event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view) {
+                dropWork(event, revertFunc);
+            },
             editable: true,
             events: [
-				{ title: 'All Day Event', start: new Date(y, m, 1) },
-				{ title: 'Long Event', start: new Date(y, m, d - 5), end: new Date(y, m, d - 2) },
-				{ id: 999, title: 'Repeating Event', start: new Date(y, m, d - 3, 16, 0), allDay: false },
+				{ id: Guid.NewGuid().ToString("string"), title: 'All Day Event', start: new Date(y, m, 1) },
+				{ id: "idforever", title: 'Long Event', start: new Date(y, m, d - 5), end: new Date(y, m, d - 2) },
+				{ id: "asdfsafd", title: 'Repeating Event', start: new Date(y, m, d - 3, 16, 0), allDay: false },
 				{ id: 999, title: 'Repeating Event', start: new Date(y, m, d + 4, 16, 0), allDay: false },
-				{ title: 'Meeting', start: new Date(y, m, d, 10, 30), allDay: false },
-				{ title: 'Lunch', start: new Date(y, m, d, 12, 0), end: new Date(y, m, d, 14, 0), allDay: false },
-				{ title: 'Birthday Party', start: new Date(y, m, d + 1, 19, 0), end: new Date(y, m, d + 1, 22, 30), allDay: false },
-				{ title: 'Click for Google', start: new Date(y, m, 28), end: new Date(y, m, 29), url: 'http://google.com/' }
+				{ id: Guid.NewGuid().ToString("string"), title: 'Meeting', start: new Date(y, m, d, 10, 30), allDay: false },
+				{ id: Guid.NewGuid().ToString("string"), title: 'Lunch', start: new Date(y, m, d, 12, 0), end: new Date(y, m, d, 14, 0), allDay: false },
+				{ id: Guid.NewGuid().ToString("string"), title: 'Birthday Party', start: new Date(y, m, d + 1, 19, 0), end: new Date(y, m, d + 1, 22, 30), allDay: false },
+				{ id: Guid.NewGuid().ToString("string"), title: 'Click for Google', start: new Date(y, m, 28), end: new Date(y, m, 29), url: 'http://google.com/' }
 			]
         });
 
     });
 </script>
 <script type="text/javascript">
-    function testdata12() { 
-        alert($("#facebox input[name='work_title']").val());
+    function submitWork() {
+        var work_idcode = $("#facebox input[name='work_idcode']").val();
+        var work_title = $("#facebox input[name='work_title']").val();
+        var work_isallday = ($("#facebox input[name='work_isallday']").attr("checked")=="checked"?true:false);
+        var work_startdate = $("#facebox input[name='work_startdate']").val();
+        var work_starttime = $("#facebox select:eq(0)").val();
+        var work_start = (work_startdate + " " + work_starttime).replace(/-/g,"/");
+        var work_enddate = $("#facebox input[name='work_enddate']").val();
+        var work_endtime = $("#facebox select:eq(1)").val();
+        var work_end = (work_enddate + " " + work_endtime).replace(/-/g, "/");
+        var work_remindtime = $("#facebox select[name='work_remindtime']").val();
+        var work_isremind = ($("#facebox input[name='work_isremind']").attr("checked")=="checked"?true:false);
+        var work_content = $("#facebox textarea[name='work_content']").val();
+        var postData = { 
+            "idcode": work_idcode,
+            "title": work_title,
+            "isallday": work_isallday,
+            "start": work_start,
+            "end": work_end,
+            "remindtime": work_remindtime,
+            "isremind": work_isremind,
+            "content":work_content
+         };
+         $.ajax({
+             url: "/Calendar/SubmitWork.aspx",
+             type: "POST",
+             data: postData,
+             //contentType: "application/json",
+             dataType: "json",
+             success: function (result) {
+                 if (result.success) {
+                     var event = calendar.fullCalendar('clientEvents',[result.data.work.idcode]);
+                     if (event.length > 0) {
+                         event[0].id = result.data.work.idcode;
+                         event[0].title = result.data.work.title;
+                         event[0].start = new Date(result.data.work.start);
+                         event[0].end = new Date(result.data.work.end);
+                         event[0].allDay = result.data.work.isallday == "true" ? true : false;
+                         calendar.fullCalendar('updateEvent', event);
+                     }
+                     else {
+                        calendar.fullCalendar('renderEvent',
+						{
+						    id: result.data.work.idcode,
+						    title: result.data.work.title,
+						    start: new Date(result.data.work.start),
+						    end: new Date(result.data.work.end),
+						    allDay:result.data.work.isallday == "true"?true:false
+						},
+						true // make the event "stick"
+					);
+                     }
+                     
+                     $(document).trigger("close.facebox");
+                 }
+             },
+             error: function () { }
+         });
+    }
+    function getWork(calEvent) {
+        $.ajax({
+            url: "/Calendar/GetWork.aspx",
+            type: "GET",
+            data: { "idcode": calEvent.id.toString(), "title": calEvent.title, "start": calEvent.start, "end": calEvent.end, "isallday": calEvent.allDay },
+            dataType: "json",
+            success: function (result) {
+                if(result.success){
+                    $("a[href='#newdlgwork']").remove();
+                    $("<a href='#newdlgwork' display='none'>#newdlgmeet</a>").appendTo(document.body);
+                    $("a[href*='#newdlgwork']").facebox();
+                    $("a[href*='#newdlgwork']").trigger("click");
+
+                    $("#facebox input[name='work_idcode']").val(result.data.work.idcode);
+                    $("#facebox input[name='work_title']").val(result.data.work.title);
+                    var start = new Date(result.data.work.start);
+                    var end = new Date(result.data.work.end);
+                    $("#facebox input[name='work_isallday']").attr("checked", result.data.work.isallday);
+                    $("#facebox input[name='work_startdate']").val(new DateFormat("yyyy-MM-dd").format(start));
+                    $("#facebox input[name='work_enddate']").val(new DateFormat("yyyy-MM-dd").format(end));
+                    $("#facebox select:eq(0)").val(new DateFormat("HH:mm").format(start));
+                    $("#facebox select:eq(1)").val(new DateFormat("HH:mm").format(end));
+                    $("#facebox select[name='work_remindtime']").val(result.data.work.remindtime);
+                    $("#facebox input[name='work_isremind']").attr("checked", result.data.work.isremind);
+                    $("#facebox textarea[name='work_content']").val(result.data.work.content);
+                }
+            },
+            error: function () { }
+        });
+    }
+    function removeWork(calEvent) {
+        $.ajax({
+            url: "/Calendar/RemoveWork.aspx",
+            type: "POST",
+            data: { "idcode": calEvent.id.toString() },
+            dataType: "json",
+            success: function (result) {
+                if (result.success) {
+                    calendar.fullCalendar('removeEvents',[result.data.work.idcode])
+                }
+            },
+            error: function () { }
+        });
+    }
+    function resizeWork(event, revertFunc) {
+        $.ajax({
+            url: "/Calendar/ResizeWork.aspx",
+            type: "POST",
+            data: { "idcode": event.id.toString(), "title": event.title, "start": event.start, "end": event.end, "isallday": event.allDay },
+            dataType: "json",
+            success: function (result) {
+                if (result.success) {
+                    
+                }
+            },
+            error: function () {
+                revertFunc();
+            }
+        });
+
+    }
+    function dropWork(event, revertFunc) {
+        resizeWork(event, revertFunc);
     }
 </script>
 <style type="text/css">
@@ -126,19 +254,19 @@
 
 }
 <div id="calendar"></div>
-<div id="newdlgmeet" style="display:none">
+<div id="newdlgwork" style="display:none">
 <fieldset>
 <form>
 <p><h2>新建事务</h2></p>
-<p><label class="facebox-inline">主题：</label><input id="testdate" name="work_title" class="text-input small-input-long" type="text" /></p>
+<input type="hidden" name="work_idcode" />
+<p><label class="facebox-inline">主题：</label><input name="work_title" class="text-input small-input-long" type="text" /></p>
 <p><label class="facebox-inline">全天事件：</label><input name="work_isallday" type="checkbox" /></p>
 <p><label class="facebox-inline">开始时间：</label><input readonly="readonly" name="work_startdate" class="text-input small-input date-picker" type="text" />&nbsp;&nbsp;@Html.Partial("TimePicker")</p>
 <p><label class="facebox-inline">结束时间：</label><input readonly="readonly" name="work_enddate" class="text-input small-input date-picker" type="text" />&nbsp;&nbsp;@Html.Partial("TimePicker")</p>
 <p><label class="facebox-inline">提醒时间：提前&nbsp;</label><select name="work_remindtime" class="small-input facebox-inline"><option value="5">5分钟</option><option value="15">15分钟</option></select>&nbsp;<input name="work_isremind" type="checkbox" /></p>
 <p><label class="facebox-inline">内容：</label></p>
 <textarea name="work_content"class="text-input textarea small-input-long" rows=6></textarea>
-<input type="submit" class="button" value="确定" />
-<input type="button" class="button" value="测试" onclick="testdata12()" />
+<input type="button" class="button" value="确定(5)" onclick="submitWork();" />
 </form>
 </fieldset>
 </div>

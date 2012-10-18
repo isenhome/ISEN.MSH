@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Department.cs" />
+    <Compile Include="JsonModels\Work.cs" />
     <Compile Include="RelationUserInfoDepartment.cs">
       <SubType>Code</SubType>
     </Compile>
