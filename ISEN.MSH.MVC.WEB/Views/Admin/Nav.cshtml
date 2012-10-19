@@ -1,8 +1,7 @@
 ﻿<ul id="main-nav">
     <!-- Accordion Menu -->
-    <li><a href="/Admin/index" class="nav-top-item no-submenu">
-        <!-- Add the class "no-submenu" to menu items with no sub menu -->
-        Dashboard </a></li>
+    <li>@Html.ActionLink("Dashboard", "index", "Admin", null, new { @class = "nav-top-item no-submenu" })
+        <!-- Add the class "no-submenu" to menu items with no sub menu --></li>
     <li><a href="#" class="nav-top-item current">
         <!-- Add the class "current" to current menu item -->
         Articles </a>
@@ -50,7 +49,7 @@
     </li>
     <li><a href="#" class="nav-top-item">工作流（5）</a>
         <ul>
-            <li><a href="/WorkFlow/CreateWorkFlow.aspx">创建流程</a></li>
+            <li>@Html.ActionLink("创建流程", "CreateWorkFlow", "WorkFlow")</li>
             <li><a href="/Setting/UserSetting">流程管理</a></li>
             <li><a href="/Setting/UserSetting">发起流程</a></li>
             <li><a href="/Setting/UserSetting">待办流程（5个）</a></li>
@@ -59,11 +58,11 @@
     </li>
     <li><a href="#" class="nav-top-item">邮件（5）</a>
         <ul>
-            <li><a href="/Email/index.aspx">收件箱（5）</a></li>
+            <li>@Html.ActionLink("收件箱（5）", "index", "Email")</li>
             <li><a href="#">发件箱</a></li>
             <li><a href="#">草稿</a></li>
         </ul>
     </li>
-    <li><a href="/Calendar/index.aspx" class="nav-top-item no-submenu">日历</a></li>
+    <li>@Html.ActionLink("日历", "index", "Calendar",null, new { @class = "nav-top-item no-submenu" })</li>
     <li><a href="#" class="nav-top-item no-submenu">站内信（10）</a></li>
 </ul>

@@ -93,7 +93,7 @@
                 resizeWork(event, revertFunc);
             },
             eventDrop: function (event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view) {
-                dropWork(event, revertFunc);
+                dropWork(event, revertFunc, allDay);
             },
             editable: true,
             events: [
