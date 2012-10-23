@@ -15,5 +15,6 @@
   </object>
   <object type="ISEN.MSH.MVC.Controllers.AdminController.CalendarController, ISEN.MSH.MVC.Controllers" singleton="false" ></object>
   <object type="ISEN.MSH.MVC.Controllers.AdminController.EmailController, ISEN.MSH.MVC.Controllers" singleton="false" ></object>
+  <object type="ISEN.MSH.MVC.Controllers.AdminController.MessageController, ISEN.MSH.MVC.Controllers" singleton="false" ></object>
 	<object type="MvcFckEditor.Controllers.FckEditorController, MvcFckEditor" singleton="false" />
 </objects>

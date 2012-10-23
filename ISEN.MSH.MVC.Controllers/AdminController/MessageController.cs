@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.Mvc;
 
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {
-    class MessageController
+    public class MessageController:Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
     }
 }

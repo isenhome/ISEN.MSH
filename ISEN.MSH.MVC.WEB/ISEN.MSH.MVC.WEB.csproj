@@ -363,9 +363,7 @@
   <ItemGroup>
     <Content Include="Views\WorkFlow\CreateWorkFlow.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Message\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\Calendar\Index.cshtml" />
   </ItemGroup>
@@ -375,6 +373,7 @@
     <Content Include="Views\Calendar\TimePicker.cshtml" />
     <Content Include="Views\Email\Index.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
