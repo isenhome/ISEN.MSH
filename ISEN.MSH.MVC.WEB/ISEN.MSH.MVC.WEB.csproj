@@ -119,6 +119,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\images\alien-icon.png" />
+    <Content Include="Content\images\avatar.png" />
     <Content Include="Content\images\b.png" />
     <Content Include="Content\images\banner-tall.jpg" />
     <Content Include="Content\images\banner.jpg" />
