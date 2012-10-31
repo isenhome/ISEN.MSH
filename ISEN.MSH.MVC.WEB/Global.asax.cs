@@ -63,7 +63,6 @@ namespace ISEN.MSH.MVC.WEB
                     CreateTime = DateTime.Now,
                     IsEnabled = true
                 };
-                Console.WriteLine("aasdf");
                 manger.Save(user);
             }
 

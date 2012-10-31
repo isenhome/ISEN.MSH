@@ -698,9 +698,45 @@ form input[type="checkbox"], form input[type="radio"]
 }
 .message
 {
-    background:#f0f0f0;
-    border-color:#cccccc;
-    color:#665252;
+    background: #f0f0f0;
+    border-color: #cccccc;
+    color: #665252;
+    height: 120px;
+}
+.message div
+{
+    display:block;
+}
+.message .message_avatar
+{
+    padding: 0px;
+    text-align: center;
+    width: 80px;
+    float: left;
+}
+.message .message_content
+{
+    float: left;
+    max-width: 721px;
+}
+
+.message .message_content .message_content_type
+{
+    
+}
+
+.message .message_content .message_content_text
+{
+    padding: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+.message .message_content .message_content_type
+{
+    
 }
 
 .notification div

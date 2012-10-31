@@ -97,7 +97,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
@@ -375,6 +374,8 @@
     <Content Include="Views\Email\Index.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\ShortCut.cshtml" />
+    <Content Include="Views\Shared\ShortCut.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

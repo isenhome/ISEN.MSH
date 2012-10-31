@@ -14,5 +14,9 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
         {
             return View();
         }
+        public ActionResult ShortCut()
+        {
+            return PartialView();
+        }
     }
 }
