@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("ISEN.MSH.Framework.COM.HMailServer")]
+[assembly: AssemblyTitle("ISEN.MSH.Framework.Mail.Hmail")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("微软中国")]
-[assembly: AssemblyProduct("ISEN.MSH.Framework.COM.HMailServer")]
+[assembly: AssemblyProduct("ISEN.MSH.Framework.Mail.Hmail")]
 [assembly: AssemblyCopyright("Copyright © 微软中国 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("b7768cbf-d98c-4113-88a9-b614b4554327")]
+[assembly: Guid("dea86f5c-5e00-4a96-bb84-56f3fda56079")]
 
 // 程序集的版本信息由下面四个值组成:
 //

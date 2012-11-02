@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEN.MSH.MVC.Controllers", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEN.MSH.Framework", "ISEN.MSH.Framework\ISEN.MSH.Framework.csproj", "{D45740DC-109D-4099-8534-FCBA48AEA8BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEN.MSH.Framework.Mail.Hmail", "ISEN.MSH.Framework.Mail.Hmail\ISEN.MSH.Framework.Mail.Hmail.csproj", "{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ISEN.MSH.vsmdi
@@ -204,6 +206,21 @@ Global
 		{D45740DC-109D-4099-8534-FCBA48AEA8BB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D45740DC-109D-4099-8534-FCBA48AEA8BB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D45740DC-109D-4099-8534-FCBA48AEA8BB}.Release|x86.ActiveCfg = Release|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.CodeAnalysis|Any CPU.ActiveCfg = Release|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.CodeAnalysis|Any CPU.Build.0 = Release|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.CodeAnalysis|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.CodeAnalysis|Mixed Platforms.Build.0 = Release|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.CodeAnalysis|x86.ActiveCfg = Release|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
