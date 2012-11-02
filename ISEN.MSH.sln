@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEN.MSH.Framework", "ISEN.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEN.MSH.Framework.Mail.Hmail", "ISEN.MSH.Framework.Mail.Hmail\ISEN.MSH.Framework.Mail.Hmail.csproj", "{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEN.MSH.App.WCF.Hmail", "ISEN.MSH.App.WCF.Hmail\ISEN.MSH.App.WCF.Hmail.csproj", "{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ISEN.MSH.vsmdi
@@ -221,6 +223,21 @@ Global
 		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796}.Release|x86.ActiveCfg = Release|Any CPU
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.CodeAnalysis|Any CPU.ActiveCfg = Release|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.CodeAnalysis|Mixed Platforms.ActiveCfg = Release|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.CodeAnalysis|Mixed Platforms.Build.0 = Release|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.CodeAnalysis|x86.ActiveCfg = Release|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.CodeAnalysis|x86.Build.0 = Release|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Debug|x86.ActiveCfg = Debug|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Debug|x86.Build.0 = Debug|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Release|Any CPU.ActiveCfg = Release|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Release|Mixed Platforms.Build.0 = Release|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Release|x86.ActiveCfg = Release|x86
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
