@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {
-    public class WorkFlowController : Controller
+    public class WorkFlowController : BaseController
     {
         //
         // GET: /WorkFlow/

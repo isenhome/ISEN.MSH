@@ -66,6 +66,7 @@
     <Compile Include="AdminController\LoginController.cs" />
     <Compile Include="AdminController\MessageController.cs" />
     <Compile Include="AdminController\UserManagerController.cs" />
+    <Compile Include="BaseController.cs" />
     <Compile Include="Filters\UserActionFilter.cs" />
     <Compile Include="HomeController\HomeController.cs" />
     <Compile Include="AdminController\WorkFlowController.cs" />

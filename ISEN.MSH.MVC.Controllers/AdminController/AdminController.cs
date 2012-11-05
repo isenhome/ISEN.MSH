@@ -8,7 +8,7 @@ using ISEN.MSH.MVC.Controllers.Filters;
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {
     [UserActionFilter]
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
 
         public IUserInfoManager UserInfoManager { get; set; }

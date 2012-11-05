@@ -8,7 +8,7 @@ using ISEN.MSH.Nhibernate.Models;
 
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     { 
 
         // GET: /Login/

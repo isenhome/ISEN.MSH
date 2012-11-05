@@ -9,7 +9,7 @@ using ISEN.MSH.Service.Interfaces;
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {
     [UserActionFilter]
-    public class UserManagerController : Controller
+    public class UserManagerController : BaseController
     {
         IUserInfoManager userInfoManager { get; set; }
 

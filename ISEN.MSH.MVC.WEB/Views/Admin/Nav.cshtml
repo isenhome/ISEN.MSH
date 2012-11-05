@@ -1,13 +1,38 @@
 ﻿<ul id="main-nav">
     <!-- Accordion Menu -->
-    <li>@Html.ActionLink("Dashboard", "index", "Admin", null, new { @class = "nav-top-item no-submenu" })
-        <!-- Add the class "no-submenu" to menu items with no sub menu --></li>
-    <li><a href="#" class="nav-top-item current">
+    <li>@Html.ActionLink("控制面板", "index", "Admin", null, new { @class = "nav-top-item no-submenu" })
+        <!-- Add the class "no-submenu" to menu items with no sub menu -->
+    </li>
+    <li><a href="#" class="nav-top-item">设置 </a>
+        <ul>
+            <li>@Html.ActionLink("用户管理", "UserSetting", "UserManager")</li>
+        </ul>
+    </li>
+    <li><a href="#" class="nav-top-item">工作流（5）</a>
+        <ul>
+            <li>@Html.ActionLink("创建流程", "CreateWorkFlow", "WorkFlow")</li>
+            <li><a href="/Setting/UserSetting">流程管理</a></li>
+            <li><a href="/Setting/UserSetting">发起流程</a></li>
+            <li><a href="/Setting/UserSetting">待办流程（5个）</a></li>
+            <li><a href="/Setting/UserSetting">办结流程</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class="nav-top-item">邮件（5）</a>
+        <ul>
+            <li>@Html.ActionLink("收件箱（5）", "index", "Email")</li>
+            <li><a href="#">发件箱</a></li>
+            <li><a href="#">草稿</a></li>
+            <li><a href="#">设置</a></li>
+        </ul>
+    </li>
+    <li>@Html.ActionLink("日历", "index", "Calendar", null, new { @class = "nav-top-item no-submenu" })</li>
+    <li>@Html.ActionLink("站内信（10）", "index", "Message", null, new { @class = "nav-top-item no-submenu" })</li>
+    <li><a href="#" class="nav-top-item">
         <!-- Add the class "current" to current menu item -->
         Articles </a>
         <ul>
             <li><a href="#">Write a new Article</a></li>
-            <li><a class="current" href="#">Manage Articles</a></li>
+            <li><a href="#">Manage Articles</a></li>
             <!-- Add class "current" to sub menu items also -->
             <li><a href="#">Manage Comments</a></li>
             <li><a href="#">Manage Categories</a></li>
@@ -42,27 +67,37 @@
             <li><a href="#">Users and Permissions</a></li>
         </ul>
     </li>
-    <li><a href="#" class="nav-top-item">设置 </a>
-        <ul>
-            <li>@Html.ActionLink("用户管理", "UserSetting", "UserManager")</li>
-        </ul>
-    </li>
-    <li><a href="#" class="nav-top-item">工作流（5）</a>
-        <ul>
-            <li>@Html.ActionLink("创建流程", "CreateWorkFlow", "WorkFlow")</li>
-            <li><a href="/Setting/UserSetting">流程管理</a></li>
-            <li><a href="/Setting/UserSetting">发起流程</a></li>
-            <li><a href="/Setting/UserSetting">待办流程（5个）</a></li>
-            <li><a href="/Setting/UserSetting">办结流程</a></li>
-        </ul>
-    </li>
-    <li><a href="#" class="nav-top-item">邮件（5）</a>
-        <ul>
-            <li>@Html.ActionLink("收件箱（5）", "index", "Email")</li>
-            <li><a href="#">发件箱</a></li>
-            <li><a href="#">草稿</a></li>
-        </ul>
-    </li>
-    <li>@Html.ActionLink("日历", "index", "Calendar",null, new { @class = "nav-top-item no-submenu" })</li>
-    <li>@Html.ActionLink("站内信（10）", "index", "Message",null, new { @class = "nav-top-item no-submenu" })</li>
 </ul>
+<script type="text/javascript">
+    $(".current").removeClass("current");
+    if ("undefined" == typeof (controller) || controller == "") {
+        controller = "admin";
+        action = "index";
+    }
+    switch (controller.toUpperCase()) {
+        case "ADMIN":
+            $("#main-nav .nav-top-item:eq(0)").addClass("current");
+            break;
+        case "USERMANAGER":
+            $("#main-nav .nav-top-item:eq(1)").addClass("current");
+            break;
+        case "WORKFLOW":
+            $("#main-nav .nav-top-item:eq(2)").addClass("current");
+            break;
+        case "EMAIL":
+            $("#main-nav .nav-top-item:eq(3)").addClass("current");
+            $("#main-nav .nav-top-item:eq(3)").parent().find("ul li a:eq(0)").addClass("current");
+            break;
+        case "CALENDAR":
+            $("#main-nav .nav-top-item:eq(4)").addClass("current");
+            break;
+        case "MESSAGE":
+            $("#main-nav .nav-top-item:eq(5)").addClass("current");
+            break;
+        default:
+            $("#main-nav .nav-top-item:eq(0)").addClass("current");
+            break;
+    }
+    controller = "";
+    action = "";
+</script>

@@ -8,11 +8,16 @@ using ISEN.MSH.MVC.Controllers.Filters;
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {
     [UserActionFilter]
-    public class EmailController:Controller
+    public class EmailController:BaseController
     {
         public ActionResult Index()
         {
-            return View();
+            return BaseView();
+        }
+
+        public ActionResult ShortCut()
+        {
+            return PartialView();
         }
     }
 }

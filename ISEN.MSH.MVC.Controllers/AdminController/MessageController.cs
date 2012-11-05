@@ -8,7 +8,7 @@ using ISEN.MSH.MVC.Controllers.Filters;
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {
     [UserActionFilter]
-    public class MessageController:Controller
+    public class MessageController : BaseController
     {
         public ActionResult Index()
         {

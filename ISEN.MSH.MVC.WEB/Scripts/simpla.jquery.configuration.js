@@ -89,9 +89,6 @@ $(document).ready(function(){
 		
 		$('a[rel*=modal]').facebox(); // Applies modal window to any link with attribute rel="modal"
 
-    // Initialise jQuery WYSIWYG:
-		
-		$(".wysiwyg").wysiwyg(); // Applies WYSIWYG editor to any textarea with the class "wysiwyg"
 
 });
   

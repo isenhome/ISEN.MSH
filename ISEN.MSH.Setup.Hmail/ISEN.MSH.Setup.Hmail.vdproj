@@ -273,7 +273,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ISEN.MSH.Setup.Hmail"
         "ProductCode" = "8:{7688599F-E92A-4037-8081-E06AEFB1A0FA}"
-        "PackageCode" = "8:{107D2392-57D5-4EEE-AB1A-AF88230D754B}"
+        "PackageCode" = "8:{99A53458-4AC9-4E55-A39B-DF15A8461F42}"
         "UpgradeCode" = "8:{8CEDA468-BA21-40EE-811B-490416A07CE0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

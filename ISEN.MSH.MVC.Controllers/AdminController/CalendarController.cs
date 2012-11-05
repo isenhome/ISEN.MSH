@@ -9,7 +9,7 @@ using ISEN.MSH.Nhibernate.Models.JsonModels;
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {
     [UserActionFilter]
-    public class CalendarController:Controller
+    public class CalendarController : BaseController
     {
         public ActionResult Index()
         {

@@ -99,7 +99,6 @@
     <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -290,10 +289,57 @@
     <Content Include="Scripts\js\fixPNG\fixpng.js" />
     <Content Include="Scripts\js\jquery\jquery-1.4.2.min.js" />
     <Content Include="Scripts\js\service.js" />
+    <Content Include="Scripts\jwysiwyg\controls\wysiwyg.colorpicker.js" />
+    <Content Include="Scripts\jwysiwyg\controls\wysiwyg.cssWrap.js" />
+    <Content Include="Scripts\jwysiwyg\controls\wysiwyg.image.js" />
+    <Content Include="Scripts\jwysiwyg\controls\wysiwyg.link.js" />
+    <Content Include="Scripts\jwysiwyg\controls\wysiwyg.table.js" />
+    <Content Include="Scripts\jwysiwyg\jquery.wysiwyg.bg.png" />
+    <Content Include="Scripts\jwysiwyg\jquery.wysiwyg.css" />
+    <Content Include="Scripts\jwysiwyg\jquery.wysiwyg.gif" />
+    <Content Include="Scripts\jwysiwyg\jquery.wysiwyg.js" />
+    <Content Include="Scripts\jwysiwyg\jquery.wysiwyg.modal.css" />
+    <Content Include="Scripts\jwysiwyg\jquery.wysiwyg.no-alpha.gif" />
+    <Content Include="Scripts\jwysiwyg\jquery.wysiwyg.old-school.css" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\icon.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\application.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\code.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\css.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\db.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\directory.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\doc.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\file.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\film.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\flash.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\folder_open.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\html.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\java.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\linux.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\mkdir.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\music.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\pdf.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\php.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\picture.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\ppt.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\prev-directory.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\psd.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\remove.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\rename.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\ruby.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\script.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\txt.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\upload.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\xls.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\images\zip.png" />
+    <Content Include="Scripts\jwysiwyg\plugins\fileManager\wysiwyg.fileManager.css" />
+    <Content Include="Scripts\jwysiwyg\plugins\wysiwyg.autoload.js" />
+    <Content Include="Scripts\jwysiwyg\plugins\wysiwyg.fileManager.js" />
+    <Content Include="Scripts\jwysiwyg\plugins\wysiwyg.fullscreen.js" />
+    <Content Include="Scripts\jwysiwyg\plugins\wysiwyg.i18n.js" />
+    <Content Include="Scripts\jwysiwyg\plugins\wysiwyg.rmFormat.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\facebox.js" />
-    <Content Include="Scripts\jquery\jquery.wysiwyg.js" />
     <Content Include="Scripts\simpla.jquery.configuration.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -376,6 +422,17 @@
     <Content Include="Views\Message\Index.cshtml" />
     <Content Include="Views\Message\ShortCut.cshtml" />
     <Content Include="Views\Shared\ShortCut.cshtml" />
+    <Content Include="Views\Email\ShortCut.cshtml" />
+    <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\Perl\file_manager.pl" />
+    <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\Perl\mkdir_handler.pl" />
+    <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\Perl\move_handler.pl" />
+    <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\Perl\remove_handler.pl" />
+    <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\Perl\rename_handler.pl" />
+    <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\Perl\upload_handler.pl" />
+    <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\PHP\common.php" />
+    <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\PHP\config.php" />
+    <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\PHP\file-manager.php" />
+    <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\PHP\handlers.php" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
