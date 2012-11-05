@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEN.MSH.Framework.Mail.Hma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISEN.MSH.App.WCF.Hmail", "ISEN.MSH.App.WCF.Hmail\ISEN.MSH.App.WCF.Hmail.csproj", "{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ISEN.MSH.Hmail", "ISEN.MSH.Hmail", "{6684FB71-1A28-43B7-BB99-4BDD8D019334}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ISEN.MSH.Setup.Hmail", "ISEN.MSH.Setup.Hmail\ISEN.MSH.Setup.Hmail.vdproj", "{C74DEAC0-F2D1-4EFC-A1B1-27F649651D36}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ISEN.MSH.vsmdi
@@ -238,9 +242,23 @@ Global
 		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Release|Mixed Platforms.Build.0 = Release|x86
 		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Release|x86.ActiveCfg = Release|x86
 		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3}.Release|x86.Build.0 = Release|x86
+		{C74DEAC0-F2D1-4EFC-A1B1-27F649651D36}.CodeAnalysis|Any CPU.ActiveCfg = Release
+		{C74DEAC0-F2D1-4EFC-A1B1-27F649651D36}.CodeAnalysis|Mixed Platforms.ActiveCfg = Release
+		{C74DEAC0-F2D1-4EFC-A1B1-27F649651D36}.CodeAnalysis|x86.ActiveCfg = Release
+		{C74DEAC0-F2D1-4EFC-A1B1-27F649651D36}.Debug|Any CPU.ActiveCfg = Debug
+		{C74DEAC0-F2D1-4EFC-A1B1-27F649651D36}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{C74DEAC0-F2D1-4EFC-A1B1-27F649651D36}.Debug|x86.ActiveCfg = Debug
+		{C74DEAC0-F2D1-4EFC-A1B1-27F649651D36}.Release|Any CPU.ActiveCfg = Release
+		{C74DEAC0-F2D1-4EFC-A1B1-27F649651D36}.Release|Mixed Platforms.ActiveCfg = Release
+		{C74DEAC0-F2D1-4EFC-A1B1-27F649651D36}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D0BCDE94-7FB5-4F29-B898-CA30DADDFCB3} = {6684FB71-1A28-43B7-BB99-4BDD8D019334}
+		{3FA8F6C0-AE37-4ADB-902C-5FC7DF314796} = {6684FB71-1A28-43B7-BB99-4BDD8D019334}
+		{C74DEAC0-F2D1-4EFC-A1B1-27F649651D36} = {6684FB71-1A28-43B7-BB99-4BDD8D019334}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35

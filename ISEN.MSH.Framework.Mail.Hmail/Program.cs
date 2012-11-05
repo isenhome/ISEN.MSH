@@ -11,7 +11,7 @@ namespace ISEN.MSH.Framework.Mail.Hmail
         [STAThread]
         static void Main()
         {
-            Accounts accounts = new Accounts();
+            //Accounts accounts = new Accounts();
             //accounts.AddAccount("testAdd@192.168.132.5", "testAdd");
             //accounts.ChangePassword("testAdd@192.168.132.5", "isenhome");
             //accounts.DeleteAccount("testAdd@192.168.132.5");
