@@ -21,6 +21,16 @@ namespace ISEN.MSH.App.WCF.Hmail
                 new HmailWCFService() 
             };
             ServiceBase.Run(ServicesToRun);
+            //using (ServiceHost host = new ServiceHost(typeof(Accounts)))
+            //{
+            //    host.Opened += delegate
+            //    {
+            //        Console.WriteLine("CalculaorService已经启动，按任意键终止服务！");
+            //    };
+
+            //    host.Open();
+            //    Console.Read();
+            //}
         }
     }
 }

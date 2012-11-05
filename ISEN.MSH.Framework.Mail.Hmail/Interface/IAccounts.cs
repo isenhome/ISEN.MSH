@@ -6,7 +6,7 @@ using System.ServiceModel;
 
 namespace ISEN.MSH.Framework.Mail.Hmail.Interface
 {
-    [ServiceContract(Name = "AccountService", Namespace = "http://hi.baidu.com/isenhome/")]
+    [ServiceContract(Name = "AccountService", Namespace = "http://127.0.0.1:10000/hmailservice/accounts")]
     public interface IAccounts
     {
         [OperationContract]
