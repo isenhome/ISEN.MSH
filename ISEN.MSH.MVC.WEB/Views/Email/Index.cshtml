@@ -10,6 +10,7 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/jwysiwyg/controls/wysiwyg.table.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jQuery-Treelist/ui-combobox.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jQuery-Treelist/widgetTreeList.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/swfupload_fp10/swfupload.js")"></script>
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/ui-combobox.css")" media="all" />
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/widgetTreeList.css")" media="all" />
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/demo.css")" media="all" />
@@ -132,18 +133,21 @@
         <!-- End #tab1 -->
         <div class="tab-content" id="tab2">
             <table class="mail_send" style="height: auto; border: inherit;">
-            <thead>
-                <tr>
-                <td colspan=2><input class="button" type="submit" value="发送" /><input class="button" type="submit" value="存草稿" /></td>
-                </tr>
-            </thead>
+                <thead>
+                    <tr>
+                        <td colspan="2">
+                            <input class="button" type="button" value="发送" /><input class="button" type="button"
+                                value="存草稿" />
+                        </td>
+                    </tr>
+                </thead>
                 <tr>
                     <td>
                         <form action="#" method="post">
                         <fieldset>
                             <p>
                                 <label>
-                                    发件人<span style="padding-left:20px;">张祥国 &ltisenhome@126.com&gt</span></label></p>
+                                    发件人<span style="padding-left: 20px;">张祥国 &ltisenhome@126.com&gt</span></label></p>
                             <p>
                                 <label>
                                     收件人</label><input class="text-input large-input" type="text" id="large-input" name="large-input" /></p>
@@ -151,17 +155,21 @@
                                 <label>
                                     主题</label><input class="text-input large-input" type="text" id="large-input" name="large-input" /></p>
                             <p>
-                                <textarea class="text-input textarea wysiwyg" id="textarea" name="textfield" cols="79"
-                                    rows="30"></textarea>
-                            </p>
-                            <p>
-                                <input type="checkbox" />紧急
-                            </p>
+                                <p>
+                                    <label>
+                                        <a href="#">添加附件</a></label>
+                                <p>
+                                    <textarea class="text-input textarea wysiwyg" id="textarea" name="textfield" cols="79"
+                                        rows="30"></textarea>
+                                </p>
+                                <p>
+                                    <input type="checkbox" />紧急
+                                </p>
                         </fieldset>
                         <!-- End .clear -->
                         </form>
                     </td>
-                    <td style="width: 30%;">
+                    <td style="width:25%">
                         <h3>
                             通讯录</h3>
                         <ul id="contact_list">

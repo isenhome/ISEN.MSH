@@ -117,6 +117,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\images\alien-icon.png" />
+    <Content Include="Content\images\attachment.png" />
     <Content Include="Content\images\avatar.png" />
     <Content Include="Content\images\b.png" />
     <Content Include="Content\images\banner-tall.jpg" />
@@ -156,6 +157,7 @@
     <Content Include="Content\images\icons\pencil.png" />
     <Content Include="Content\images\icons\pencil_48.png" />
     <Content Include="Content\images\icons\tick_circle.png" />
+    <Content Include="Content\images\important.png" />
     <Content Include="Content\images\letter-icon.gif" />
     <Content Include="Content\images\linkedin-icon.png" />
     <Content Include="Content\images\list-marker.gif" />
@@ -179,6 +181,7 @@
     <Content Include="Content\images\photo-member3.jpg" />
     <Content Include="Content\images\read-more-btn.png" />
     <Content Include="Content\images\readmore-big.png" />
+    <Content Include="Content\images\redflag.png" />
     <Content Include="Content\images\send-btn.png" />
     <Content Include="Content\images\separator-1.gif" />
     <Content Include="Content\images\shortcut-button-bg.gif" />
@@ -186,6 +189,7 @@
     <Content Include="Content\images\tl.png" />
     <Content Include="Content\images\tr.png" />
     <Content Include="Content\images\twitter-icon.png" />
+    <Content Include="Content\images\whiteflag.png" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Contextmenu\js\AeroWindow-Contextmenu.js" />
@@ -256,6 +260,11 @@
     <Content Include="Scripts\fullcalendar\util.js" />
     <Content Include="Scripts\fullcalendar\_loader.js" />
     <Content Include="Scripts\guid.js" />
+    <Content Include="Scripts\jQuery-Treelist\demo.css" />
+    <Content Include="Scripts\jQuery-Treelist\ui-combobox.css" />
+    <Content Include="Scripts\jQuery-Treelist\ui-combobox.js" />
+    <Content Include="Scripts\jQuery-Treelist\widgetTreeList.css" />
+    <Content Include="Scripts\jQuery-Treelist\widgetTreeList.js" />
     <Content Include="Scripts\jquery-ui.custom\css\smoothness\images\calendar.gif" />
     <Content Include="Scripts\jquery-ui.custom\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Scripts\jquery-ui.custom\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
