@@ -81,7 +81,7 @@ $(document).ready(function(){
 		
 		$('.check-all').click(
 			function(){
-				$(this).parent().parent().parent().parent().find("input[type='checkbox']").attr('checked', $(this).is(':checked'));   
+			    $(this).parent().parent().parent().parent().parent().find("input[type='checkbox']").attr('checked', $(this).is(':checked'));   
 			}
 		);
 

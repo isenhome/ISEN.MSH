@@ -1,0 +1,18 @@
+.ui-combobox {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.ui-combobox .ui-combobox-toggleText {
+	HEIGHT: 19px; OVERFLOW: hidden
+}
+.ui-combobox LI {
+	POSITION: relative; PADDING-BOTTOM: 5px; MARGIN: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; CURSOR: pointer; PADDING-TOP: 5px
+}
+.ui-combobox LI A {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; OUTLINE-STYLE: solid; OUTLINE-COLOR: transparent; PADDING-LEFT: 0px; OUTLINE-WIDTH: 0px; WIDTH: 90%; PADDING-RIGHT: 0px; DISPLAY: block; TEXT-DECORATION: none; PADDING-TOP: 0px
+}
+.ui-combobox LI .ui-icon {
+	PADDING-BOTTOM: 0px; MARGIN: -20px 0px 0px; PADDING-LEFT: 0px; WIDTH: 17px; PADDING-RIGHT: 0px; FLOAT: right; HEIGHT: 17px; PADDING-TOP: 0px
+}
+.ui-combobox-list {
+	POSITION: absolute; PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 1px !important; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: none; FLOAT: left; BORDER-TOP-WIDTH: 1px !important; BORDER-BOTTOM-WIDTH: 1px !important; OVERFLOW: auto; BORDER-LEFT-WIDTH: 1px !important; PADDING-TOP: 0px; LEFT: -1px
+}

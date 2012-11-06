@@ -1,0 +1,27 @@
+.treeListDemoContainer {
+	WIDTH: 300px
+}
+.treeListDemoContainer TABLE {
+	WIDTH: 100%
+}
+.treeListDemoContainer TD {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 10px; WIDTH: 33%; PADDING-RIGHT: 10px; VERTICAL-ALIGN: top; PADDING-TOP: 0px
+}
+.treeListDemoContainer TH {
+	FONT-SIZE: 120%; FONT-WEIGHT: bold
+}
+.treeListDemoExplained UL {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: decimal; MARGIN: 0px 0px 0px 18px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.treeListDemoExplained LI {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: decimal; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.treeListDemoContainer .ui-treeList LI {
+	POSITION: relative; PADDING-BOTTOM: 5px; MARGIN: 5px 0px 0px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; PADDING-TOP: 5px
+}
+.treeListDemoContainer .ui-treeList LI:first-letter {
+	MARGIN: 5px 0px 0px 25px
+}
+.treeListDemoContainer .ui-treeList LI DIV.ui-treeList-toggle {
+	POSITION: absolute; MARGIN: 5px 0px 0px; WIDTH: 16px; HEIGHT: 16px; TOP: -2px; LEFT: 5px
+}

@@ -1,0 +1,33 @@
+.ui-treeList {
+	POSITION: relative; PADDING-BOTTOM: 5px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 5px
+}
+.ui-treeList UL {
+	PADDING-BOTTOM: 15px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 15px
+}
+.ui-treeList LI {
+	POSITION: relative; PADDING-BOTTOM: 1px; MARGIN: 5px 0px 0px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; PADDING-TOP: 1px
+}
+.ui-treeList LI:first-letter {
+	MARGIN: 0px 0px 0px 20px
+}
+.ui-treeList LI DIV.ui-treeList-toggle {
+	POSITION: absolute; MARGIN: 5px 0px 0px; WIDTH: 16px; HEIGHT: 16px; TOP: 0px; LEFT: 2px
+}
+.ui-treeList .ui-treeList-childs {
+	
+}
+.ui-treeList .ui-treeList-open {
+	
+}
+.ui-treeList .ui-treeList-item {
+	
+}
+.ui-treeList .ui-treeList-itemEmpty {
+	HEIGHT: 10px
+}
+.ui-treeList .ui-sortable-placeholder {
+	BORDER-BOTTOM: thin dashed; BORDER-LEFT: thin dashed; MIN-HEIGHT: 20px; BORDER-TOP: thin dashed; BORDER-RIGHT: thin dashed
+}
+.ui-treeList .ui-sortable-helper {
+	BORDER-BOTTOM: thin dashed; BORDER-LEFT: thin dashed; BORDER-TOP: thin dashed; BORDER-RIGHT: thin dashed
+}
