@@ -11,16 +11,83 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/jQuery-Treelist/ui-combobox.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jQuery-Treelist/widgetTreeList.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/swfupload_fp10/swfupload.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/plugins/swfupload.cookies.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/plugins/swfupload.proxy.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/plugins/swfupload.queue.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/plugins/swfupload.speed.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/filegroupprogress.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/fileprogress.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/handlers.js")"></script>
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/ui-combobox.css")" media="all" />
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/widgetTreeList.css")" media="all" />
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/demo.css")" media="all" />
     <link rel="stylesheet" href="@Url.Content("~/Scripts/jquery-ui.custom/css/smoothness/jquery-ui-1.9.0.custom.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/SWFUpload/ext/css.css")" />
     <script type="text/javascript">
+        var swfu;
         $(document).ready(function () {
             $(".wysiwyg").wysiwyg();
             $("#contact_list").treeList();
             $('#contact_list').treeList('closeNode', $('#contact_list').find('li'));
             $('#contact_list').treeList('openNode', $('#contact_list').find('li:nth-child(2):first'));
+            var settings = {
+                flash_url: "@Url.Content("~/Scripts/SWFUpload/swfupload_fp10/swfupload.swf")",
+                upload_url:"@Url.Action("file", "email")",
+                file_size_limit: "100 MB",
+                file_types: "*.*",
+                file_types_description: "All Files",
+                file_upload_limit: 100,
+                file_queue_limit: 0,
+                custom_settings: {
+
+                    progressTarget: "divprogresscontainer",
+                    progressGroupTarget: "divprogressGroup",
+
+                    //progress object
+                    container_css: "progressobj",
+                    icoNormal_css: "IcoNormal",
+                    icoWaiting_css: "IcoWaiting",
+                    icoUpload_css: "IcoUpload",
+                    fname_css: "fle ftt",
+                    state_div_css: "statebarSmallDiv",
+                    state_bar_css: "statebar",
+                    percent_css: "ftt",
+                    href_delete_css: "ftt",
+
+                    //sum object
+                    /*
+                    页面中不应出现以"cnt_"开头声明的元素
+                    */
+                    s_cnt_progress: "cnt_progress",
+                    s_cnt_span_text: "fle",
+                    s_cnt_progress_statebar: "cnt_progress_statebar",
+                    s_cnt_progress_percent: "cnt_progress_percent",
+                    s_cnt_progress_uploaded: "cnt_progress_uploaded",
+                    s_cnt_progress_size: "cnt_progress_size"
+                },
+                debug: false,
+
+                // Button settings
+                //button_image_url: "images/TestImageNoText_65x29.png",
+                button_width: "65",
+                button_height: "20",
+                button_placeholder_id: "ButtonPlaceHolder",
+                button_text: "<a href='#' class='theFont'><b>添加附件</b></a>",
+                button_text_style: ".theFont{color:#57a000; font-size:14px;}",
+                button_text_left_padding: 0,
+                button_text_top_padding: 5,
+
+                // The event handler functions are defined in handlers.js
+                file_queued_handler: fileQueued,
+                file_queue_error_handler: fileQueueError,
+                upload_start_handler: uploadStart,
+                upload_progress_handler: uploadProgress,
+                upload_error_handler: uploadError,
+                upload_success_handler: uploadSuccess,
+                upload_complete_handler: uploadComplete,
+                file_dialog_complete_handler: fileDialogComplete
+            };
+            swfu = new SWFUpload(settings);
         });
     </script>
 }
@@ -155,21 +222,27 @@
                                 <label>
                                     主题</label><input class="text-input large-input" type="text" id="large-input" name="large-input" /></p>
                             <p>
-                                <p>
-                                    <label>
-                                        <a href="#">添加附件</a></label>
-                                <p>
-                                    <textarea class="text-input textarea wysiwyg" id="textarea" name="textfield" cols="79"
-                                        rows="30"></textarea>
-                                </p>
-                                <p>
-                                    <input type="checkbox" />紧急
-                                </p>
+                                <img src="@Url.Content("~/Content/images/attachment.png")" alt="附件" /><label id="ButtonPlaceHolder">
+                                </label>
+                                <div class="fieldset flash" id="fsUploadProgress">
+                                    <div id="divprogresscontainer">
+                                    </div>
+                                    <div id="divprogressGroup">
+                                    </div>
+                                </div>
+                            </p>
+                            <p>
+                                <textarea class="text-input textarea wysiwyg" id="textarea" name="textfield" cols="79"
+                                    rows="30"></textarea>
+                            </p>
+                            <p>
+                                <input type="checkbox" />紧急
+                            </p>
                         </fieldset>
                         <!-- End .clear -->
                         </form>
                     </td>
-                    <td style="width:25%">
+                    <td style="width: 25%">
                         <h3>
                             通讯录</h3>
                         <ul id="contact_list">
