@@ -10,11 +10,8 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/jwysiwyg/controls/wysiwyg.table.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jQuery-Treelist/ui-combobox.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jQuery-Treelist/widgetTreeList.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/swfupload_fp10/swfupload.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/plugins/swfupload.cookies.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/plugins/swfupload.proxy.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/swfupload.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/plugins/swfupload.queue.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/plugins/swfupload.speed.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/filegroupprogress.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/fileprogress.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/handlers.js")"></script>
@@ -31,7 +28,7 @@
             $('#contact_list').treeList('closeNode', $('#contact_list').find('li'));
             $('#contact_list').treeList('openNode', $('#contact_list').find('li:nth-child(2):first'));
             var settings = {
-                flash_url: "@Url.Content("~/Scripts/SWFUpload/swfupload_fp10/swfupload.swf")",
+                flash_url: "@Url.Content("~/Scripts/SWFUpload/swfupload.swf")",
                 upload_url:"@Url.Action("file", "email")",
                 file_size_limit: "100 MB",
                 file_types: "*.*",
@@ -225,6 +222,65 @@
                                 <img src="@Url.Content("~/Content/images/attachment.png")" alt="附件" /><label id="ButtonPlaceHolder">
                                 </label>
                                 <div class="fieldset flash" id="fsUploadProgress">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    文件名
+                                                </th>
+                                                <th>
+                                                    进度
+                                                </th>
+                                                <th>
+                                                    百分比
+                                                </th>
+                                                <th>
+                                                    文件大小
+                                                </th>
+                                                <th>
+                                                    状态
+                                                </th>
+                                                <th>
+                                                    操作
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="6">
+                                                    <span>4</span>篇文档等待上传，上传成功：<span>1</span>份，上传失败：<span>1</span>份
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    a.html
+                                                </td>
+                                                <td>
+                                                    <div class="progress" style="height:10px;">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    100%
+                                                </td>
+                                                <td>
+                                                    10M
+                                                </td>
+                                                <td>
+                                                    上传成功
+                                                </td>
+                                                <td>
+                                                    <input type="button" class="button" value="删除" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <script type="text/javascript">
+                                        $(".progress").progressbar({
+                                            value: 59
+                                        });
+                                    </script>
                                     <div id="divprogresscontainer">
                                     </div>
                                     <div id="divprogressGroup">

@@ -26,7 +26,6 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
         {
             foreach (string upload in Request.Files)
             {
-                //if (!Request.Files[0]) continue;
                 string path = AppDomain.CurrentDomain.BaseDirectory + "uploads";
                 if (!Directory.Exists(path))
                 {

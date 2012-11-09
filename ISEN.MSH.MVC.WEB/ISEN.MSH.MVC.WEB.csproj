@@ -350,13 +350,12 @@
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\facebox.js" />
     <Content Include="Scripts\simpla.jquery.configuration.js" />
-    <Content Include="Scripts\SWFUpload\core changelog.txt" />
-    <Content Include="Scripts\SWFUpload\documentation\index.html" />
+    <Content Include="Scripts\SWFUpload\css\css.css" />
+    <Content Include="Scripts\SWFUpload\ext\css.css" />
     <Content Include="Scripts\SWFUpload\ext\filegroupprogress.js" />
     <Content Include="Scripts\SWFUpload\ext\fileprogress.js" />
     <Content Include="Scripts\SWFUpload\ext\handlers.js" />
     <Content Include="Scripts\SWFUpload\images\163_blue_s_css.txt" />
-    <Content Include="Scripts\SWFUpload\ext\css.css" />
     <Content Include="Scripts\SWFUpload\images\del.gif" />
     <Content Include="Scripts\SWFUpload\images\globle_css.txt" />
     <Content Include="Scripts\SWFUpload\images\ico.gif" />
@@ -364,15 +363,12 @@
     <Content Include="Scripts\SWFUpload\images\upload.gif" />
     <Content Include="Scripts\SWFUpload\images\upload_normal.gif" />
     <Content Include="Scripts\SWFUpload\images\upload_waiting.gif" />
-    <Content Include="Scripts\SWFUpload\plugins\SWFObject License.txt" />
     <Content Include="Scripts\SWFUpload\plugins\swfupload.cookies.js" />
     <Content Include="Scripts\SWFUpload\plugins\swfupload.proxy.js" />
     <Content Include="Scripts\SWFUpload\plugins\swfupload.queue.js" />
     <Content Include="Scripts\SWFUpload\plugins\swfupload.speed.js" />
-    <Content Include="Scripts\SWFUpload\swfupload license.txt" />
-    <Content Include="Scripts\SWFUpload\swfupload_fp10\swfupload.js" />
-    <Content Include="Scripts\SWFUpload\swfupload_fp10\swfupload.swf" />
-    <Content Include="Scripts\SWFUpload\swfupload_fp9\swfupload_fp9.swf" />
+    <Content Include="Scripts\SWFUpload\swfupload.js" />
+    <Content Include="Scripts\SWFUpload\swfupload.swf" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -465,23 +461,6 @@
     <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\PHP\config.php" />
     <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\PHP\file-manager.php" />
     <None Include="Scripts\jwysiwyg\plugins\fileManager\handlers\PHP\handlers.php" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\AsyncJPEGEncoder.as" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\deploy.bat" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\EncodeCompleteEvent.as" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\ExternalCall.as" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\FileItem.as" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\ImageResizer.as" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\ImageResizerEvent.as" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\jpegencoder.swc" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\MultipartURLLoader.as" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\PNGEncoder.as" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\SWFUpload FP10.as3proj" />
-    <None Include="Scripts\SWFUpload\swfupload_fp10\SWFUpload.as" />
-    <None Include="Scripts\SWFUpload\swfupload_fp9\deploy.bat" />
-    <None Include="Scripts\SWFUpload\swfupload_fp9\ExternalCall.as" />
-    <None Include="Scripts\SWFUpload\swfupload_fp9\FileItem.as" />
-    <None Include="Scripts\SWFUpload\swfupload_fp9\SWFUpload FP9.as3proj" />
-    <None Include="Scripts\SWFUpload\swfupload_fp9\SWFUpload.as" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
