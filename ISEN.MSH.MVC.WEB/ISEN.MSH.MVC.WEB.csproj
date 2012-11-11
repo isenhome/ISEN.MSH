@@ -350,11 +350,12 @@
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\facebox.js" />
     <Content Include="Scripts\simpla.jquery.configuration.js" />
-    <Content Include="Scripts\SWFUpload\css\css.css" />
     <Content Include="Scripts\SWFUpload\ext\css.css" />
     <Content Include="Scripts\SWFUpload\ext\filegroupprogress.js" />
     <Content Include="Scripts\SWFUpload\ext\fileprogress.js" />
+    <Content Include="Scripts\SWFUpload\ext\handleProgress.js" />
     <Content Include="Scripts\SWFUpload\ext\handlers.js" />
+    <Content Include="Scripts\SWFUpload\ext\uploadProgress.js" />
     <Content Include="Scripts\SWFUpload\images\163_blue_s_css.txt" />
     <Content Include="Scripts\SWFUpload\images\del.gif" />
     <Content Include="Scripts\SWFUpload\images\globle_css.txt" />

@@ -29,9 +29,12 @@ namespace ISEN.MSH.MVC.WEB
             //    "{controller}/{action}/{id}", // 带有参数的 URL
             //    new { controller = "Home", action = "Index", id = UrlParameter.Optional } // 参数默认值
             //);
-            routes.MapRoute("NoAction", "{controller}.aspx", new { controller = "home", action = "index", id = "" });//无Action的匹配
-            routes.MapRoute("NoID", "{controller}/{action}.aspx", new { controller = "home", action = "index", id = "" });//无ID的匹配
-            routes.MapRoute("Default", "{controller}/{action}/{id}.aspx", new { controller = "home", action = "index", id = "" });//默认匹配
+            routes.MapRoute("NoActionASPX", "{controller}.aspx", new { controller = "home", action = "index", id = "" });//无Action的匹配
+            routes.MapRoute("NoIDASPX", "{controller}/{action}.aspx", new { controller = "home", action = "index", id = "" });//无ID的匹配
+            routes.MapRoute("DefaultASPX", "{controller}/{action}/{id}.aspx", new { controller = "home", action = "index", id = "" });//默认匹配
+            routes.MapRoute("NoAction", "{controller}", new { controller = "home", action = "index", id = "" });//无Action的匹配
+            routes.MapRoute("NoID", "{controller}/{action}", new { controller = "home", action = "index", id = "" });//无ID的匹配
+            routes.MapRoute("Default", "{controller}/{action}/{id}", new { controller = "home", action = "index", id = "" });//默认匹配
             routes.MapRoute("Root", "", new { controller = "home", action = "index", id = "" });//根目录匹配
 
 

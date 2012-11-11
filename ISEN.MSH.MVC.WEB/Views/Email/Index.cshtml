@@ -10,16 +10,16 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/jwysiwyg/controls/wysiwyg.table.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jQuery-Treelist/ui-combobox.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jQuery-Treelist/widgetTreeList.js")"></script>
+
     <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/swfupload.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/plugins/swfupload.queue.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/filegroupprogress.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/fileprogress.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/handlers.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/uploadprogress.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/handleProgress.js")"></script>
+
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/ui-combobox.css")" media="all" />
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/widgetTreeList.css")" media="all" />
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/demo.css")" media="all" />
     <link rel="stylesheet" href="@Url.Content("~/Scripts/jquery-ui.custom/css/smoothness/jquery-ui-1.9.0.custom.css")" />
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/SWFUpload/ext/css.css")" />
     <script type="text/javascript">
         var swfu;
         $(document).ready(function () {
@@ -28,40 +28,14 @@
             $('#contact_list').treeList('closeNode', $('#contact_list').find('li'));
             $('#contact_list').treeList('openNode', $('#contact_list').find('li:nth-child(2):first'));
             var settings = {
-                flash_url: "@Url.Content("~/Scripts/SWFUpload/swfupload.swf")",
-                upload_url:"@Url.Action("file", "email")",
+                flash_url: '@Url.Content("~/Scripts/SWFUpload/swfupload.swf")',
+                upload_url: '@Url.Action("UploadFile", "Email")',
                 file_size_limit: "100 MB",
                 file_types: "*.*",
                 file_types_description: "All Files",
                 file_upload_limit: 100,
                 file_queue_limit: 0,
-                custom_settings: {
-
-                    progressTarget: "divprogresscontainer",
-                    progressGroupTarget: "divprogressGroup",
-
-                    //progress object
-                    container_css: "progressobj",
-                    icoNormal_css: "IcoNormal",
-                    icoWaiting_css: "IcoWaiting",
-                    icoUpload_css: "IcoUpload",
-                    fname_css: "fle ftt",
-                    state_div_css: "statebarSmallDiv",
-                    state_bar_css: "statebar",
-                    percent_css: "ftt",
-                    href_delete_css: "ftt",
-
-                    //sum object
-                    /*
-                    页面中不应出现以"cnt_"开头声明的元素
-                    */
-                    s_cnt_progress: "cnt_progress",
-                    s_cnt_span_text: "fle",
-                    s_cnt_progress_statebar: "cnt_progress_statebar",
-                    s_cnt_progress_percent: "cnt_progress_percent",
-                    s_cnt_progress_uploaded: "cnt_progress_uploaded",
-                    s_cnt_progress_size: "cnt_progress_size"
-                },
+                custom_settings: { progressTarget: "divprogresscontainer" },
                 debug: false,
 
                 // Button settings
@@ -72,29 +46,39 @@
                 button_text: "<a href='#' class='theFont'><b>添加附件</b></a>",
                 button_text_style: ".theFont{color:#57a000; font-size:14px;}",
                 button_text_left_padding: 0,
-                button_text_top_padding: 5,
+                button_text_top_padding: 0,
 
-                // The event handler functions are defined in handlers.js
-                file_queued_handler: fileQueued,
-                file_queue_error_handler: fileQueueError,
-                upload_start_handler: uploadStart,
-                upload_progress_handler: uploadProgress,
-                upload_error_handler: uploadError,
-                upload_success_handler: uploadSuccess,
-                upload_complete_handler: uploadComplete,
-                file_dialog_complete_handler: fileDialogComplete
+                // The event handler functions are defined in handleProgress.js
+                file_queued_handler: HandleProgress.fileQueued,
+                file_queue_error_handler: HandleProgress.fileQueueError,
+
+                upload_start_handler: HandleProgress.uploadStart,
+                upload_progress_handler: HandleProgress.uploadProgress,
+                upload_error_handler: HandleProgress.uploadError,
+                upload_success_handler: HandleProgress.uploadSuccess,
+                upload_complete_handler: HandleProgress.uploadComplete,
+
+                file_dialog_complete_handler: HandleProgress.fileDialogComplete
             };
             swfu = new SWFUpload(settings);
         });
     </script>
 }
 @Html.Action("ShortCut", "Email")
+<form method="post" id="documentForm" action="email/UploadFile.aspx">
+    <input type="file" name="filename" />
+    <input type="button" class="button" value="testupload" onclick="testabc();" />
+</form>
+<script type="text/javascript">
+    function testabc() {
+        $("#documentForm").submit();
+    }
+</script>
 <!-- End .clear -->
 <div class="content-box">
     <!-- Start Content Box -->
     <div class="content-box-header">
-        <h3>
-            收件箱（共100封邮件）</h3>
+        <h3>收件箱（共100封邮件）</h3>
         <ul class="content-box-tabs">
             <li><a href="#tab1" class="default-tab">收件箱<img style="padding-left:10px;" src="@Url.Content("~/Content/images/icons/cross_grey_small.png")" title="Close this notification" alt="close" onclick="alert('asfd');" />
             </a></li>
@@ -135,8 +119,7 @@
                                 <a href="#" title="First Page">&laquo; First</a> <a href="#" title="Previous Page">&laquo;
                                     Previous</a> <a href="#" class="number" title="1">1</a> <a href="#" class="number"
                                         title="2">2</a> <a href="#" class="number current" title="3">3</a> <a href="#" class="number"
-                                            title="4">4</a> <a href="#" title="Next Page">Next &raquo;</a> <a href="#" title="Last Page">
-                                                Last &raquo;</a>
+                                            title="4">4</a> <a href="#" title="Next Page">Next &raquo;</a> <a href="#" title="Last Page">Last &raquo;</a>
                             </div>
                             <!-- End .pagination -->
                             <div class="clear">
@@ -152,8 +135,7 @@
                         <td>
                             <img src="@Url.Content("~/Content/images/important.png")" alt="重要" />
                         </td>
-                        <td style="width: 150px;">
-                            isenhome@126.com
+                        <td style="width: 150px;">isenhome@126.com
                         </td>
                         <td style="width: 32px;">
                             <img src="@Url.Content("~/Content/images/whiteflag.png")" alt="红旗" />
@@ -164,8 +146,7 @@
                         <td>
                             <img src="@Url.Content("~/Content/images/attachment.png")" alt="附件" />
                         </td>
-                        <td>
-                            2012-11-6 09:05
+                        <td>2012-11-6 09:05
                         </td>
                     </tr>
                     <tr>
@@ -175,8 +156,7 @@
                         <td>
                             <img src="@Url.Content("~/Content/images/important.png")" alt="重要" />
                         </td>
-                        <td style="width: 150px;">
-                            isenhome@126.com
+                        <td style="width: 150px;">isenhome@126.com
                         </td>
                         <td style="width: 32px;">
                             <img src="@Url.Content("~/Content/images/redflag.png")" alt="红旗" />
@@ -187,8 +167,7 @@
                         <td>
                             <img src="@Url.Content("~/Content/images/attachment.png")" alt="附件" />
                         </td>
-                        <td>
-                            2012-11-6 09:05
+                        <td>2012-11-6 09:05
                         </td>
                     </tr>
                 </tbody>
@@ -211,80 +190,20 @@
                         <fieldset>
                             <p>
                                 <label>
-                                    发件人<span style="padding-left: 20px;">张祥国 &ltisenhome@126.com&gt</span></label></p>
+                                    发件人<span style="padding-left: 20px;">张祥国 &ltisenhome@126.com&gt</span></label>
+                            </p>
                             <p>
                                 <label>
-                                    收件人</label><input class="text-input large-input" type="text" id="large-input" name="large-input" /></p>
+                                    收件人</label><input class="text-input large-input" type="text" id="large-input" name="large-input" />
+                            </p>
                             <p>
                                 <label>
-                                    主题</label><input class="text-input large-input" type="text" id="large-input" name="large-input" /></p>
+                                    主题</label><input class="text-input large-input" type="text" id="large-input" name="large-input" />
+                            </p>
                             <p>
-                                <img src="@Url.Content("~/Content/images/attachment.png")" alt="附件" /><label id="ButtonPlaceHolder">
+                                <img src="@Url.Content("~/Content/images/attachment.png")" alt="附件" style="padding-bottom:4px;" /><label id="ButtonPlaceHolder">
                                 </label>
-                                <div class="fieldset flash" id="fsUploadProgress">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    文件名
-                                                </th>
-                                                <th>
-                                                    进度
-                                                </th>
-                                                <th>
-                                                    百分比
-                                                </th>
-                                                <th>
-                                                    文件大小
-                                                </th>
-                                                <th>
-                                                    状态
-                                                </th>
-                                                <th>
-                                                    操作
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="6">
-                                                    <span>4</span>篇文档等待上传，上传成功：<span>1</span>份，上传失败：<span>1</span>份
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    a.html
-                                                </td>
-                                                <td>
-                                                    <div class="progress" style="height:10px;">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    100%
-                                                </td>
-                                                <td>
-                                                    10M
-                                                </td>
-                                                <td>
-                                                    上传成功
-                                                </td>
-                                                <td>
-                                                    <input type="button" class="button" value="删除" />
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <script type="text/javascript">
-                                        $(".progress").progressbar({
-                                            value: 59
-                                        });
-                                    </script>
-                                    <div id="divprogresscontainer">
-                                    </div>
-                                    <div id="divprogressGroup">
-                                    </div>
+                                <div id="divprogresscontainer">
                                 </div>
                             </p>
                             <p>
@@ -299,8 +218,7 @@
                         </form>
                     </td>
                     <td style="width: 25%">
-                        <h3>
-                            通讯录</h3>
+                        <h3>通讯录</h3>
                         <ul id="contact_list">
                             <li>我自己的邮箱</li>
                             <li>常用联系人（2）
@@ -330,8 +248,7 @@
                 </tr>
             </table>
             <style type="text/css">
-                .mail_send td
-                {
+                .mail_send td {
                     background-color: #ffffff;
                 }
             </style>

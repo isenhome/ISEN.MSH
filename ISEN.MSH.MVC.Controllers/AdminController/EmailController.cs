@@ -22,7 +22,7 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
             return PartialView();
         }
 
-        public void File()
+        public void UploadFile()
         {
             foreach (string upload in Request.Files)
             {
