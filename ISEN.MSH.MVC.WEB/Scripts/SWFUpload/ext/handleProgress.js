@@ -5,6 +5,7 @@ var HandleProgress = {
     fileQueued: function (file) {
         try {
             UploadProgress.getEntity(swfu.settings.custom_settings.progressTarget).addFile(file);
+            UploadProgress.getEntity(swfu.settings.custom_settings.progressTarget).setStatus();
         }
         catch (e) {
             this.debug(e);
@@ -12,7 +13,7 @@ var HandleProgress = {
     },
 
     fileDialogComplete: function () {
-        swfu.startUpload();
+        
     },
 
     fileQueueError: function (file, errorCode, message) {
@@ -21,9 +22,8 @@ var HandleProgress = {
                 alert("You have attempted to queue too many files.\n" + (message === 0 ? "You have reached the upload limit." : "You may select " + (message > 1 ? "up to " + message + " files." : "one file.")));
                 return;
             }
-
             UploadProgress.getEntity(swfu.settings.custom_settings.progressTarget).removeFile(file);
-
+            UploadProgress.getEntity(swfu.settings.custom_settings.progressTarget).setStatus();
             switch (errorCode) {
                 case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
                     //progress.setStatus("File is too big.");
@@ -61,6 +61,7 @@ var HandleProgress = {
             we can do is say we are uploading.
             */
             UploadProgress.getEntity(swfu.settings.custom_settings.progressTarget).uploadFileState(file, "正在上传");
+            UploadProgress.getEntity(swfu.settings.custom_settings.progressTarget).setStatus();
         }
         catch (ex) { }
 
@@ -79,6 +80,8 @@ var HandleProgress = {
     uploadSuccess: function (file, serverData) {
         try {
             UploadProgress.getEntity(swfu.settings.custom_settings.progressTarget).uploadFileState(file, "上传成功");
+            UploadProgress.getEntity(swfu.settings.custom_settings.progressTarget).bindDelete(file);
+            UploadProgress.getEntity(swfu.settings.custom_settings.progressTarget).setStatus();
         } catch (ex) {
             this.debug(ex);
         }
@@ -86,8 +89,7 @@ var HandleProgress = {
 
     uploadComplete: function (file) {
         try {
-            alert("uploadcomplete");
-            //swf.stratUpload();
+            swfu.startUpload();
         }
         catch (ex) {
             this.debug(ex);
@@ -96,9 +98,8 @@ var HandleProgress = {
 
     uploadError: function (file, errorCode, message) {
         try {
-
             UploadProgress.getEntity(swfu.settings.custom_settings.progressTarget).removeFile(file);
-
+            UploadProgress.getEntity(swfu.settings.custom_settings.progressTarget).setStatus();
             switch (errorCode) {
                 case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
                     //progress.setStatus("Upload Error: " + message);
@@ -148,14 +149,5 @@ var HandleProgress = {
         } catch (ex) {
             this.debug(ex);
         }
-    },
-
-    // This event comes from the Queue Plugin
-    queueComplete: function (numFilesUploaded) {
-        alert("queueComplete");
-        /*var status = document.getElementById("divStatus");
-        status.innerHTML = numFilesUploaded + " file" + (numFilesUploaded === 1 ? "" : "s") + " uploaded.";*/
     }
-
-
 };

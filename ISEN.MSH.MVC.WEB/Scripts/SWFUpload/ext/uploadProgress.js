@@ -7,9 +7,6 @@ targetid:    父容器标识
 
 function _uploadProgress(targetid) {
     this.targetid = targetid;
-    this.allNum = 0;
-    this.successNum = 0;
-    this.errorNum = 0;
 
     this.layoutTable = $("<table></table>");
     this.layoutThead = $("<thead><tr><th>文件名</th><th>进度</th><th>百分比</th><th>文件大小</th><th>状态</th><th>操作</th></tr></thead>");
@@ -25,9 +22,8 @@ function _uploadProgress(targetid) {
 
 _uploadProgress.prototype.addFile = function (file) {
     //定义文件处理标识
-    var layoutTr = $("<tr id='" + file.id + "'><td>" + file.name + "</td><td><div class='file_progress' style='height:10px;'></div></td><td class='file_progress_percent'>0%</td><td>" + file.size + "</td><td class='file_state'></td><td><input type='button' class='button' value='' /></td></tr>");
+    var layoutTr = $("<tr id='" + file.id + "'><td style='width:25%'>" + file.name + "</td><td  style='width:25%'><div class='file_progress' style='height:10px;'></div></td><td  style='width:10%' class='file_progress_percent'>0%</td><td style='width:15%'>" + file.size + "</td><td class='file_state' style='width:15%'></td><td  style='width:10%'><input type='button' value='' /></td></tr>");
     layoutTr.appendTo(this.layoutTbody);
-    this.addAllNum();
     this.progressbarBar(file, 0);
     this.uploadFileState(file, "等待上传");
     this.bindCanel(file);
@@ -35,70 +31,64 @@ _uploadProgress.prototype.addFile = function (file) {
 
 _uploadProgress.prototype.removeFile = function (file) {
     $("#" + file.id).remove();
-    this.reducedAllNum();
-    if (this.allNum == 0) {
-        $("#" + this.targetid).find("table").remove();
-        UploadProgress.entity = null;
-    }
+    UploadProgress.entity.checkVisable();
 }
 
 _uploadProgress.prototype.progressbarBar = function (file, percent) {
     $("#" + file.id + " " + "td .file_progress").progressbar({
         value: percent
     });
-    $("#" + file.id + " " + ".file_progress_percent").html(percent+"%");
+    $("#" + file.id + " " + ".file_progress_percent").html(percent + "%");
 }
 
-_uploadProgress.prototype.uploadFileState = function (file,fileState) {
+_uploadProgress.prototype.uploadFileState = function (file, fileState) {
     $("#" + file.id + " " + ".file_state").html(fileState);
 }
 
 _uploadProgress.prototype.bindCanel = function (file) {
-    $("#" + file.id + " " + "td .button").unbind("click");
-    $("#" + file.id + " " + "td .button").val("取消");
-    $("#" + file.id + " " + "td .button").click(function () {
-        alert("cancel");
+    $("#" + file.id + " " + "td input").unbind("click");
+    $("#" + file.id + " " + "td input").val("取消");
+    $("#" + file.id + " " + "td input").click(function () {
         swfu.cancelUpload(file.id);
         UploadProgress.entity.removeFile(file);
     });
 }
 
 _uploadProgress.prototype.bindDelete = function (file) {
-    $("#" + file.id + " " + "td .button").unbind("click");
-    $("#" + file.id + " " + "td .button").val("删除");
-    $("#" + file.id + " " + "td .button").click(function () {
-        alert("delete");
+    $("#" + file.id + " " + "td input").unbind("click");
+    $("#" + file.id + " " + "td input").addClass("button");
+    $("#" + file.id + " " + "td input").val("删除");
+    $("#" + file.id + " " + "td input").click(function () {
+        var jData = { fileID: file.id, fileName: file.name };
+        $.ajax({
+            url: swfu.settings.custom_settings.deleteAction,
+            data: jData,
+            type: "GET",
+            success: function (data, textStatus, jqXHR) {
+                var status = swfu.getStats();
+                status.successful_uploads--;
+                swfu.setStats(status);
+                UploadProgress.entity.setStatus();
+                UploadProgress.entity.removeFile(file);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("error");
+            }
+        });
     });
 }
-
-_uploadProgress.prototype.addAllNum = function () {
-    this.allNum = this.allNum + 1;
-    $("#fileNumber").html(this.allNum);
+_uploadProgress.prototype.setStatus = function () {
+    $("#fileNumber").html(swfu.getStats().files_queued);
+    $("#fileSuccess").html(swfu.getStats().successful_uploads);
+    $("#fileError").html(swfu.getStats().upload_errors);
+   
 }
 
-_uploadProgress.prototype.reducedAllNum = function () {
-    this.allNum = this.allNum - 1;
-    $("#fileNumber").html(this.allNum);
-}
-
-_uploadProgress.prototype.addSuccessNum = function () {
-    this.successNum = this.successNum + 1;
-    $("#fileSuccess").html(this.successNum);
-}
-
-_uploadProgress.prototype.reducedeSuccessNum = function () {
-    this.successNum = this.successNum - 1;
-    $("#fileSuccess").html(this.successNum);
-}
-
-_uploadProgress.prototype.addErrorNum = function () {
-    this.errorNum = this.errorNum + 1;
-    $("#fileError").html(this.errorNum);
-}
-
-_uploadProgress.prototype.reducedErrorNum = function () {
-    this.errorNum = this.errorNum - 1;
-    $("#fileError").html(this.errorNum);
+_uploadProgress.prototype.checkVisable = function () {
+    if ($("#" + this.targetid+" "+"table tbody").find("tr").length == 0) {
+        $("#" + this.targetid).find("table").remove();
+        UploadProgress.entity = null;
+    }
 }
 
 var UploadProgress = {

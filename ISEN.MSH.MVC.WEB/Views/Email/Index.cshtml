@@ -10,32 +10,60 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/jwysiwyg/controls/wysiwyg.table.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jQuery-Treelist/ui-combobox.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jQuery-Treelist/widgetTreeList.js")"></script>
-
     <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/swfupload.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/plugins/swfupload.queue.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/uploadprogress.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/SWFUpload/ext/handleProgress.js")"></script>
-
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/ui-combobox.css")" media="all" />
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/widgetTreeList.css")" media="all" />
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jQuery-Treelist/demo.css")" media="all" />
     <link rel="stylesheet" href="@Url.Content("~/Scripts/jquery-ui.custom/css/smoothness/jquery-ui-1.9.0.custom.css")" />
     <script type="text/javascript">
+        function seletPoster(target){
+            var temp = $("input[name='emailPoster']").val();
+            var tempHas = temp.indexOf(target.html());
+            var tempFlag;
+            if(tempHas != -1){
+                var tempArray = temp.split(";");
+                for(i=0;i<tempArray.length-1;i++){
+                    if(tempArray[i].replace(/(^\s*)|(\s*$)/g, '') == target.html().replace(/(^\s*)|(\s*$)/g, '')){
+                        tempFlag = true;
+                        break;
+                    }
+                }
+                if(!tempFlag){
+                    temp = temp+"; "+ target.html().replace(/(^\s*)|(\s*$)/g, '');
+                }
+            }
+            else{
+                if(temp != ""){
+                    temp = temp+";"+ target.html().replace(/(^\s*)|(\s*$)/g, '');
+                }
+                else{
+                    temp=target.html();
+                }
+            }
+             $("input[name='emailPoster']").val(temp);
+        }
         var swfu;
         $(document).ready(function () {
             $(".wysiwyg").wysiwyg();
             $("#contact_list").treeList();
             $('#contact_list').treeList('closeNode', $('#contact_list').find('li'));
             $('#contact_list').treeList('openNode', $('#contact_list').find('li:nth-child(2):first'));
+
             var settings = {
                 flash_url: '@Url.Content("~/Scripts/SWFUpload/swfupload.swf")',
                 upload_url: '@Url.Action("UploadFile", "Email")',
-                file_size_limit: "100 MB",
+                file_size_limit: "20 MB",
                 file_types: "*.*",
                 file_types_description: "All Files",
                 file_upload_limit: 100,
                 file_queue_limit: 0,
-                custom_settings: { progressTarget: "divprogresscontainer" },
+                custom_settings: {
+                    progressTarget: "divprogresscontainer",
+                    deleteAction:"@Url.Action("DeleteFile", "Email")"
+                },
                 debug: false,
 
                 // Button settings
@@ -61,24 +89,25 @@
                 file_dialog_complete_handler: HandleProgress.fileDialogComplete
             };
             swfu = new SWFUpload(settings);
+
+            $(".button[value='发送']").click(function(){
+                swfu.startUpload();
+            });
+
+            $(".button[value='存草稿']").click(function(){
+                swfu.startUpload();
+            });
         });
+
     </script>
 }
 @Html.Action("ShortCut", "Email")
-<form method="post" id="documentForm" action="email/UploadFile.aspx">
-    <input type="file" name="filename" />
-    <input type="button" class="button" value="testupload" onclick="testabc();" />
-</form>
-<script type="text/javascript">
-    function testabc() {
-        $("#documentForm").submit();
-    }
-</script>
 <!-- End .clear -->
 <div class="content-box">
     <!-- Start Content Box -->
     <div class="content-box-header">
-        <h3>收件箱（共100封邮件）</h3>
+        <h3>
+            收件箱（共100封邮件）</h3>
         <ul class="content-box-tabs">
             <li><a href="#tab1" class="default-tab">收件箱<img style="padding-left:10px;" src="@Url.Content("~/Content/images/icons/cross_grey_small.png")" title="Close this notification" alt="close" onclick="alert('asfd');" />
             </a></li>
@@ -119,7 +148,8 @@
                                 <a href="#" title="First Page">&laquo; First</a> <a href="#" title="Previous Page">&laquo;
                                     Previous</a> <a href="#" class="number" title="1">1</a> <a href="#" class="number"
                                         title="2">2</a> <a href="#" class="number current" title="3">3</a> <a href="#" class="number"
-                                            title="4">4</a> <a href="#" title="Next Page">Next &raquo;</a> <a href="#" title="Last Page">Last &raquo;</a>
+                                            title="4">4</a> <a href="#" title="Next Page">Next &raquo;</a> <a href="#" title="Last Page">
+                                                Last &raquo;</a>
                             </div>
                             <!-- End .pagination -->
                             <div class="clear">
@@ -135,7 +165,8 @@
                         <td>
                             <img src="@Url.Content("~/Content/images/important.png")" alt="重要" />
                         </td>
-                        <td style="width: 150px;">isenhome@126.com
+                        <td style="width: 150px;">
+                            isenhome@126.com
                         </td>
                         <td style="width: 32px;">
                             <img src="@Url.Content("~/Content/images/whiteflag.png")" alt="红旗" />
@@ -146,7 +177,8 @@
                         <td>
                             <img src="@Url.Content("~/Content/images/attachment.png")" alt="附件" />
                         </td>
-                        <td>2012-11-6 09:05
+                        <td>
+                            2012-11-6 09:05
                         </td>
                     </tr>
                     <tr>
@@ -156,7 +188,8 @@
                         <td>
                             <img src="@Url.Content("~/Content/images/important.png")" alt="重要" />
                         </td>
-                        <td style="width: 150px;">isenhome@126.com
+                        <td style="width: 150px;">
+                            isenhome@126.com
                         </td>
                         <td style="width: 32px;">
                             <img src="@Url.Content("~/Content/images/redflag.png")" alt="红旗" />
@@ -167,7 +200,8 @@
                         <td>
                             <img src="@Url.Content("~/Content/images/attachment.png")" alt="附件" />
                         </td>
-                        <td>2012-11-6 09:05
+                        <td>
+                            2012-11-6 09:05
                         </td>
                     </tr>
                 </tbody>
@@ -194,14 +228,15 @@
                             </p>
                             <p>
                                 <label>
-                                    收件人</label><input class="text-input large-input" type="text" id="large-input" name="large-input" />
+                                    收件人</label><input class="text-input large-input" type="text" id="large-input" name="emailPoster" />
                             </p>
                             <p>
                                 <label>
                                     主题</label><input class="text-input large-input" type="text" id="large-input" name="large-input" />
                             </p>
                             <p>
-                                <img src="@Url.Content("~/Content/images/attachment.png")" alt="附件" style="padding-bottom:4px;" /><label id="ButtonPlaceHolder">
+                                <img src="@Url.Content("~/Content/images/attachment.png")" alt="附件" style="padding-bottom:4px;" /><label
+                                    id="ButtonPlaceHolder">
                                 </label>
                                 <div id="divprogresscontainer">
                                 </div>
@@ -218,7 +253,8 @@
                         </form>
                     </td>
                     <td style="width: 25%">
-                        <h3>通讯录</h3>
+                        <h3>
+                            通讯录</h3>
                         <ul id="contact_list">
                             <li>我自己的邮箱</li>
                             <li>常用联系人（2）
@@ -229,18 +265,18 @@
                             </li>
                             <li>未分组（3）
                                 <ul>
-                                    <li>isenhome@126.com </li>
-                                    <li>isenhome@126.com </li>
-                                    <li>isenhome@126.com </li>
+                                    <li>isenhome@126.com</li>
+                                    <li>isenhome@126.com</li>
+                                    <li>isenhome@126.com</li>
                                 </ul>
                             </li>
                             <li>所有（5）
                                 <ul>
-                                    <li>isenhome@126.com </li>
-                                    <li>isenhome@126.com </li>
-                                    <li>isenhome@126.com </li>
-                                    <li>isenhome@126.com </li>
-                                    <li>isenhome@126.com </li>
+                                    <li><span style="font-weight:700">张祥国</span><span style="display:none;">&ltisenhome@126.com&gt</span></li>
+                                    <li>isenhome@126.com</li>
+                                    <li>isenhome@126.com</li>
+                                    <li>senhome@126.com</li>
+                                    <li>isenhome@126.co</li>
                                 </ul>
                             </li>
                         </ul>
@@ -248,7 +284,8 @@
                 </tr>
             </table>
             <style type="text/css">
-                .mail_send td {
+                .mail_send td
+                {
                     background-color: #ffffff;
                 }
             </style>

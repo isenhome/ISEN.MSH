@@ -5,10 +5,10 @@
 *
 */
 
-(function($) {
+(function ($) {
     $.widget("jv.treeList", {
         options: { selectable: true },
-        _create: function() {
+        _create: function () {
 
             var w = this;
             w._initItem($(this.element).find("li"));
@@ -20,7 +20,7 @@
 
             $(this.element)
                 .addClass('ui-treeList ui-widget ui-widget-content ui-corner-all')
-                .bind('click', function(e) {
+                .bind('click', function (e) {
                     var $t = $(e.target);
                     if ($t.hasClass('ui-treeList-toggle')) {
                         var b = $t.siblings('ul').is(':visible');
@@ -34,7 +34,7 @@
                 })
                 .disableSelection();
         },
-        destroy: function() {
+        destroy: function () {
 
             $(this.element)
             .unbind('click')
@@ -51,19 +51,19 @@
 
             $.Widget.prototype.destroy.call(this);
         },
-        _initItem: function($lis) {
+        _initItem: function ($lis) {
             $lis.addClass('ui-treeList-item ui-widget-content ui-corner-all ui-state-default')
                   .hover(
-                        function() { $(this).addClass('ui-state-hover').parents('li').removeClass('ui-state-hover'); ; return false; }
-                        , function() { $(this).removeClass('ui-state-hover'); return false; }
+                        function () { $(this).addClass('ui-state-hover').parents('li').removeClass('ui-state-hover'); ; return false; }
+                        , function () { $(this).removeClass('ui-state-hover'); return false; }
                     );
         },
-        _initChildList: function($uls) {
+        _initChildList: function ($uls) {
             $uls.addClass('ui-treeList-childs')
                     .hide()
                     .before('<div class="ui-treeList-toggle ui-widget ui-widget-content ui-corner-all ui-icon ui-icon-plus"></div>');
         },
-        openNode: function($lisOpen) {
+        openNode: function ($lisOpen) {
             if ($lisOpen) {
                 $lisOpen.children('ul')
                                 .show()
@@ -78,7 +78,7 @@
             }
         }
         ,
-        closeNode: function($lisClose) {
+        closeNode: function ($lisClose) {
             if ($lisClose) {
                 $lisClose.addClass('ui-state-default')
                                 .children('ul')
@@ -86,11 +86,19 @@
                                 .siblings('div.ui-treeList-toggle').removeClass('ui-icon-minus').addClass('ui-icon ui-icon-plus');
             }
         }
-        , selected: function($lis) {
+        ,
+        selected: function ($lis) {
             if ($lis) {
                 $(this.element).find('li').removeClass('ui-state-active');
+                $(this.element).find('li').unbind("selectAction");
                 $lis.addClass('ui-state-active');
+                if ($lis.find("li").length == 0) {
+                    $lis.bind("selectAction", function () {
+                        seletPoster($lis);
+                    });
+                }
                 this._trigger('onSelect');
+                $lis.trigger("selectAction");
             }
             else {
                 return $(this.element).find('li.ui-state-active');
