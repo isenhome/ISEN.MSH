@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Mail.dll</id>
+    <version>3.0.12305.2153</version>
+    <authors>Limilabs</authors>
+    <owners>Limilabs</owners>
+    <licenseUrl>http://www.limilabs.com/static/mail/license.txt</licenseUrl>
+    <projectUrl>http://www.limilabs.com/mail</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Mail.dll is a .NET IMAP, POP3 and SMTP client library and email parser. It allows sending, receiving and processing email messages in .NET applications.</description>
+    <tags>imap pop3 email mail smtp mime smime</tags>
+  </metadata>
+</package>

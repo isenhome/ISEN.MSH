@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Pop3</id>
+    <version>1.1.0.12</version>
+    <title>Pop3.NET</title>
+    <authors>Rodolfo Finochietti</authors>
+    <owners>Rodolfo Finochietti</owners>
+    <licenseUrl>http://creativecommons.org/licenses/by/2.0</licenseUrl>
+    <projectUrl>http://rfinochi.github.com/pop3dotnet</projectUrl>
+    <iconUrl>http://shockbyte.files.wordpress.com/2012/11/pop3dotnet-200.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Small and simple library for retrieving messages from Post Office Protocol version 3 (POP3) servers.</description>
+    <releaseNotes>Minor enhancements</releaseNotes>
+    <copyright />
+    <language>en-US</language>
+    <tags>Pop3 Mail Email</tags>
+  </metadata>
+</package>
