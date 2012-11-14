@@ -5,8 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Mvc;
-//using System.ServiceModel;
-using ISEN.MSH.Service.Implements;
 
 namespace ISEN.MSH.MVC.WEB
 {

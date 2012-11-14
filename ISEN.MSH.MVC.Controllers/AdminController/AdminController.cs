@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using ISEN.MSH.Nhibernate.Models;
-using ISEN.MSH.Service.Interfaces;
 using ISEN.MSH.MVC.Controllers.Filters;
+using ISEN.MSH.APP.Service.Base.User.Service;
+using ISEN.MSH.Nhibernate.Model.User;
 
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {

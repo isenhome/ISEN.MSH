@@ -61,16 +61,6 @@
     <Compile Include="TestBaseFlowVertex.cs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ISEN.MSH.MODELS\ISEN.MSH.Nhibernate.Models.csproj">
-      <Project>{10C9F6F3-E451-441A-8572-C8E409D1C03A}</Project>
-      <Name>ISEN.MSH.Nhibernate.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ISEN.MSH.Service\ISEN.MSH.Service.csproj">
-      <Project>{89ED86CD-A4E3-47A6-9675-9BAC481E7BEC}</Project>
-      <Name>ISEN.MSH.Service</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

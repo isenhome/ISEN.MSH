@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using ISEN.MSH.MVC.Controllers.Filters;
-using ISEN.MSH.Nhibernate.Models.JsonModels;
+using ISEN.MSH.APP.Service.Calendar.Models;
 
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {

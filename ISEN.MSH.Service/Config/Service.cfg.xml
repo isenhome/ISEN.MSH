@@ -1,60 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <objects xmlns="http://www.springframework.net">
-	<object id="Manager.UserInfo" parent="BaseTransactionManager">
-		<property name="Target">
-			<object type="ISEN.MSH.Service.Implements.UserInfoManager, ISEN.MSH.Service">
-				<property name="CurrentRepository" ref="Repository.UserInfo"/>
-			</object>
-		</property>
-	</object>
+  <object id="Manager.UserInfo" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ISEN.MSH.Service.Implements.UserInfoManager, ISEN.MSH.Service">
+        <property name="CurrentRepository" ref="Repository.UserInfo"/>
+      </object>
+    </property>
+  </object>
 
-	<object id="Manager.BaseFlow" parent="BaseTransactionManager">
-		<property name="Target">
-			<object type="ISEN.MSH.Service.Implements.BaseFlowManager, ISEN.MSH.Service">
-				<property name="CurrentRepository" ref="Repository.BaseFlow"/>
-			</object>
-		</property>
-	</object>
-	<object id="Manager.BaseFlowArc" parent="BaseTransactionManager">
-		<property name="Target">
-			<object type="ISEN.MSH.Service.Implements.BaseFlowArcManager, ISEN.MSH.Service">
-				<property name="CurrentRepository" ref="Repository.BaseFlowArc"/>
-			</object>
-		</property>
-	</object>
-	<object id="Manager.BaseFlowVertex" parent="BaseTransactionManager">
-		<property name="Target">
-			<object type="ISEN.MSH.Service.Implements.BaseFlowVertexManager, ISEN.MSH.Service">
-				<property name="CurrentRepository" ref="Repository.BaseFlowVertex"/>
-			</object>
-		</property>
-	</object>
-	<object id="Manager.BaseFlowRequirement" parent="BaseTransactionManager">
-		<property name="Target">
-			<object type="ISEN.MSH.Service.Implements.BaseFlowRequirementManager, ISEN.MSH.Service">
-				<property name="CurrentRepository" ref="Repository.BaseFlowRequirement"/>
-			</object>
-		</property>
-	</object>
-	<object id="Manager.FlowInstances" parent="BaseTransactionManager">
-		<property name="Target">
-			<object type="ISEN.MSH.Service.Implements.FlowInstancesManager, ISEN.MSH.Service">
-				<property name="CurrentRepository" ref="Repository.FlowInstances"/>
-			</object>
-		</property>
-	</object>
-	<object id="Manager.FlowVertexInstances" parent="BaseTransactionManager">
-		<property name="Target">
-			<object type="ISEN.MSH.Service.Implements.FlowVertexInstancesManager, ISEN.MSH.Service">
-				<property name="CurrentRepository" ref="Repository.FlowVertexInstances"/>
-			</object>
-		</property>
-	</object>
-	<object id="Manager.FlowRequirementInstances" parent="BaseTransactionManager">
-		<property name="Target">
-			<object type="ISEN.MSH.Service.Implements.FlowRequirementInstancesManager, ISEN.MSH.Service">
-				<property name="CurrentRepository" ref="Repository.FlowRequirementInstances"/>
-			</object>
-		</property>
-	</object>
+  <object id="Manager.BaseFlow" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ISEN.MSH.Service.Implements.BaseFlowManager, ISEN.MSH.Service">
+        <property name="CurrentRepository" ref="Repository.BaseFlow"/>
+      </object>
+    </property>
+  </object>
+  <object id="Manager.BaseFlowArc" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ISEN.MSH.Service.Implements.BaseFlowArcManager, ISEN.MSH.Service">
+        <property name="CurrentRepository" ref="Repository.BaseFlowArc"/>
+      </object>
+    </property>
+  </object>
+  <object id="Manager.BaseFlowVertex" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ISEN.MSH.Service.Implements.BaseFlowVertexManager, ISEN.MSH.Service">
+        <property name="CurrentRepository" ref="Repository.BaseFlowVertex"/>
+      </object>
+    </property>
+  </object>
+  <object id="Manager.BaseFlowRequirement" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ISEN.MSH.Service.Implements.BaseFlowRequirementManager, ISEN.MSH.Service">
+        <property name="CurrentRepository" ref="Repository.BaseFlowRequirement"/>
+      </object>
+    </property>
+  </object>
+  <object id="Manager.FlowInstances" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ISEN.MSH.Service.Implements.FlowInstancesManager, ISEN.MSH.Service">
+        <property name="CurrentRepository" ref="Repository.FlowInstances"/>
+      </object>
+    </property>
+  </object>
+  <object id="Manager.FlowVertexInstances" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ISEN.MSH.Service.Implements.FlowVertexInstancesManager, ISEN.MSH.Service">
+        <property name="CurrentRepository" ref="Repository.FlowVertexInstances"/>
+      </object>
+    </property>
+  </object>
+  <object id="Manager.FlowRequirementInstances" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ISEN.MSH.Service.Implements.FlowRequirementInstancesManager, ISEN.MSH.Service">
+        <property name="CurrentRepository" ref="Repository.FlowRequirementInstances"/>
+      </object>
+    </property>
+  </object>
 </objects>

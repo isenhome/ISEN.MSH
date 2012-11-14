@@ -781,7 +781,7 @@ namespace System.Linq.Dynamic
                 //if (isEquality && !left.Type.IsValueType && !right.Type.IsValueType)
                 //{
                 // liudong 2011-02-08 for GUID
-                if (isEquality && ((!left.Type.IsValueType && !right.Type.IsValueType) 
+                if (isEquality && ((!left.Type.IsValueType && !right.Type.IsValueType)
                     || (left.Type == typeof(Guid) && right.Type == typeof(Guid))))
                 {
                     if (left.Type != right.Type)

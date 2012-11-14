@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database">
+	<!-- 配置占位符 -->
+	<object type="Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer, Spring.Core">
+		<property name="ConfigSections" value="databaseSettings"/>
+	</object>
+	<!--数据库提供者-->
+	<db:provider id="DbProvider" provider="${provider}" connectionString="${connectionString}"/>
+	<!--SessionFactory对象-->
+	<object id="NHibernateSessionFactory"
+			type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate31">
+		<property name="DbProvider" ref="DbProvider"/>
+		<property name="MappingAssemblies">
+			<list>
+        <value>ISEN.MSH.Nhibernate.Model</value>
+			</list>
+		</property>
+		<property name="HibernateProperties">
+			<dictionary>
+				<entry key="hibernate.current_session_context_class"
+					   value="Spring.Data.NHibernate.SpringSessionContext, Spring.Data.NHibernate31"/>
+
+				<entry key="hibernate.connection.provider"
+					   value="NHibernate.Connection.DriverConnectionProvider"/>
+				<!--数据库方言-->
+				<entry key="dialect" value="${dialect}"/>
+
+				<!--数据库驱动-->
+				<entry key="connection.driver_class" value="${driver_class}"/>
+
+				<entry key="use_outer_join" value="true"/>
+				<entry key="show_sql" value="false"/>
+				<!--自动建表(反向映射)-->
+				<entry key="hbm2ddl.auto" value="${hbm2ddl.auto}"/>
+				<!--超时时间-->
+				<entry key="command_timeout" value="60"/>
+				<entry key="query.substitutions" value="true 1, false 0, yes 'Y', no 'N'"/>
+				<entry key="proxyfactory.factory_class"
+					   value="NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu"/>
+
+			</dictionary>
+		</property>
+
+		<property name="ExposeTransactionAwareSessionFactory" value="true" />
+	</object>
+	<!--HibernateTemplate模板-->
+	<object id="HibernateTemplate" type="Spring.Data.NHibernate.Generic.HibernateTemplate">
+		<property name="SessionFactory" ref="NHibernateSessionFactory" />
+		<property name="TemplateFlushMode" value="Auto" />
+		<property name="CacheQueries" value="true" />
+	</object>
+
+	<!--ADO.NET Config-->
+	<object id="AdoTemplate" type="Spring.Data.Core.AdoTemplate, Spring.Data">
+		<property name="DbProvider" ref="DbProvider"/>
+		<property name="DataReaderWrapperType" value="Spring.Data.Support.NullMappingDataReader, Spring.Data"/>
+	</object>
+
+</objects>

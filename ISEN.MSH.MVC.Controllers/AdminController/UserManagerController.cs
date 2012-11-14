@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using ISEN.MSH.MVC.Controllers.Filters;
-using ISEN.MSH.Service.Interfaces;
+using ISEN.MSH.APP.Service.Base.User.Service;
 
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {

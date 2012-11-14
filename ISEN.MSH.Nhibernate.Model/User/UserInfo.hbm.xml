@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="ISEN.MSH.Nhibernate.Model"
+                   namespace="ISEN.MSH.Nhibernate.Model.User">
+
+  <class name="UserInfo" table="T_UserInfo">
+    <cache usage="read-write"/>
+    <id name="ID" type="Guid">
+      <column name="UserInfoID" index="PK_UserInfo"/>
+      <generator class="assigned" />
+    </id>
+
+    <!--名称-->
+    <property name="Name" type="string">
+      <column name="Name" length="50" not-null="true"/>
+    </property>
+
+    <!--账号-->
+    <property name="Account" type="string">
+      <column name="Account" length="50" not-null="true"/>
+    </property>
+
+    <!--密码-->
+    <property name="Password" type="string">
+      <column name="Password" length="32" not-null="true"/>
+    </property>
+
+    <!--启用-->
+    <property name="IsEnabled" type="bool">
+      <column name="IsEnabled" not-null="true"/>
+    </property>
+
+    <!--建立时间-->
+    <property name="CreateTime" type="DateTime">
+      <column name="CreateTime" not-null="true"/>
+    </property>
+
+  </class>
+
+</hibernate-mapping>

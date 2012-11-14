@@ -84,10 +84,6 @@
     <EmbeddedResource Include="Config\Nhibernate.Models.cfg.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ISEN.MSH.COMMON\ISEN.MSH.Common.csproj">
-      <Project>{565EE37F-D0F6-45BA-BE23-692E9CC896DE}</Project>
-      <Name>ISEN.MSH.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ISEN.MSH.MODELS\ISEN.MSH.Nhibernate.Models.csproj">
       <Project>{10C9F6F3-E451-441A-8572-C8E409D1C03A}</Project>
       <Name>ISEN.MSH.Nhibernate.Models</Name>

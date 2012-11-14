@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Spring.Web.Mvc;
 using Spring.Context;
 using Spring.Context.Support;
-using ISEN.MSH.Service.Interfaces;
-using ISEN.MSH.Service.Implements;
+using ISEN.MSH.APP.Service.Base.User.Service;
+using Spring.Web.Mvc;
+using ISEN.MSH.Nhibernate.Model.User;
 
 namespace ISEN.MSH.MVC.WEB
 {
@@ -58,7 +58,7 @@ namespace ISEN.MSH.MVC.WEB
             var user = manger.Get(account);
             if (user == null)
             {
-                user = new ISEN.MSH.Nhibernate.Models.UserInfo
+                user = new UserInfo
                 {
                     Account = account,
                     Name = "管理员",

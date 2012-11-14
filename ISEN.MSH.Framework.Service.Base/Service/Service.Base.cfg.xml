@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+	<description></description>
+
+	<object id="transactionManager"
+		  type="Spring.Data.NHibernate.HibernateTransactionManager, Spring.Data.NHibernate31">
+		<property name="DbProvider" ref="DbProvider"/>
+		<property name="SessionFactory" ref="NHibernateSessionFactory"/>
+	</object>
+
+
+	<object id="transactionInterceptor" type="Spring.Transaction.Interceptor.TransactionInterceptor, Spring.Data">
+		<property name="TransactionManager" ref="transactionManager"/>
+		<property name="TransactionAttributeSource">
+			<object type="Spring.Transaction.Interceptor.AttributesTransactionAttributeSource, Spring.Data"/>
+		</property>
+	</object>
+
+	<!--事物管理器-->
+	<object id="BaseTransactionManager"  type="Spring.Transaction.Interceptor.TransactionProxyFactoryObject, Spring.Data" abstract="true">
+		<property name="PlatformTransactionManager" ref="transactionManager"/>
+		<property name="TransactionAttributes">
+			<name-values>
+				<!--增加-->
+				<add key="Save*" value="PROPAGATION_REQUIRED"/>
+				<!--修改-->
+				<add key="Update*" value="PROPAGATION_REQUIRED"/>
+				<!--删除-->
+				<add key="Delete*" value="PROPAGATION_REQUIRED"/>
+				<!--获取-->
+				<add key="Get*" value="PROPAGATION_REQUIRED"/>
+				<!--浏览-->
+				<add key="Find*" value="PROPAGATION_SUPPORTS,readOnly"/>
+				<!--检索-->
+				<add key="Search*" value="PROPAGATION_SUPPORTS,readOnly"/>
+				<!--报表-->
+				<add key="Query*" value="PROPAGATION_SUPPORTS,readOnly"/>
+				<!--载入-->
+				<add key="Load*" value="PROPAGATION_SUPPORTS,readOnly"/>
+				<!--报表-->
+				<add key="Report*" value="PROPAGATION_SUPPORTS,readOnly"/>
+				<!--其它-->
+				<add key="*" value="PROPAGATION_REQUIRED"/>
+			</name-values>
+		</property>
+	</object>
+
+</objects>

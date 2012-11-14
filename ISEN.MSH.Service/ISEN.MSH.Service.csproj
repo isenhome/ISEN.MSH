@@ -62,16 +62,6 @@
     <EmbeddedResource Include="Config\Service.cfg.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ISEN.MSH.Dao\ISEN.MSH.Dao.csproj">
-      <Project>{EAF1B024-8290-479A-821B-31D3FB815912}</Project>
-      <Name>ISEN.MSH.Dao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ISEN.MSH.MODELS\ISEN.MSH.Nhibernate.Models.csproj">
-      <Project>{10C9F6F3-E451-441A-8572-C8E409D1C03A}</Project>
-      <Name>ISEN.MSH.Nhibernate.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Interfaces\IBaseFlowArcManager.cs" />
   </ItemGroup>
   <ItemGroup>
