@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonModels\Work.cs" />
+    <Compile Include="Mail\Attachment.cs" />
+    <Compile Include="Mail\Folder.cs" />
+    <Compile Include="Mail\Mail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\UserInfo.cs" />
   </ItemGroup>
