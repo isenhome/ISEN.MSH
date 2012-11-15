@@ -85,7 +85,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Service\Service.Mail.cfg.xml" />
     <EmbeddedResource Include="Dao\Models.Mail.cfg.xml" />
-    <Content Include="Mail.conf.xml" />
+    <Content Include="Mail.conf.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ISEN.MSH.Framework.Service.Base\ISEN.MSH.Framework.Service.Base.csproj">

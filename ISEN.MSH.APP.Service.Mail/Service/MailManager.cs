@@ -14,5 +14,10 @@ namespace ISEN.MSH.APP.Service.Mail.Service
             return ((Dao.IMailRepository)(this.CurrentRepository))
                 .LoadAllByPage(out total, page, rows, order, sort).ToList();
         }
+
+        public void LoadAllFromServerByImap()
+        { 
+            
+        }
     }
 }
