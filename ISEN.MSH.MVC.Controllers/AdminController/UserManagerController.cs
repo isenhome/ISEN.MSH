@@ -11,7 +11,7 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
     [UserActionFilter]
     public class UserManagerController : BaseController
     {
-        IUserInfoManager userInfoManager { get; set; }
+        IUserManager userManager { get; set; }
 
         public ActionResult Index()
         {
@@ -21,7 +21,7 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
         public ActionResult UserSetting()
         {
             long total = 0;
-            var list = userInfoManager.LoadAllWithPage(out total, 0, 10);
+            var list = userManager.LoadAllWithPage(out total, 0, 10);
             return View(list);
         }
         public ActionResult UserAdd()
@@ -31,7 +31,7 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
         public ActionResult UserDelete(string id)
         {
             Guid guid = new Guid(id);
-            userInfoManager.Delete(guid);
+            userManager.Delete(guid);
             return Redirect("/Setting/UserSetting");
         }
     }

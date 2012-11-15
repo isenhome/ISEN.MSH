@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ISEN.MSH.APP.Service.Base.User.Service;
-using ISEN.MSH.Nhibernate.Model.User;
+using ISEN.MSH.Nhibernate.Model.Users;
 
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {
@@ -12,7 +12,7 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
     { 
 
         // GET: /Login/
-        public IUserInfoManager UserInfoManager { get; set; }
+        public IUserManager UserManager { get; set; }
 
         public ActionResult Login()
         {
@@ -20,22 +20,22 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
         }
 
         [HttpPost]
-        public ActionResult Login(UserInfo userInfo, string strReturnUrl)
+        public ActionResult Login(UserModel user, string strReturnUrl)
         {
-            userInfo = UserInfoManager.Get(userInfo.Account, userInfo.Password);
-            if (userInfo == null)
+            user = UserManager.Get(user.Account, user.Password);
+            if (user == null)
             {
                 ModelState.AddModelError("IsEnabled", "用户名或密码错误");
-                return View(userInfo);
+                return View(user);
             }
-            if (!userInfo.IsEnabled)
+            if (!user.IsEnabled)
             {
                 ModelState.AddModelError("IsEnabled", "用户已经被禁用");
-                return View(userInfo);
+                return View(user);
             }
             else
             {
-                Session.Add("user", userInfo);
+                Session.Add("user", user);
                 if (Url.IsLocalUrl(strReturnUrl) && strReturnUrl.Length > 1 && strReturnUrl.StartsWith("/") && !strReturnUrl.StartsWith("//") && !strReturnUrl.StartsWith("/\\"))
                 {
                     return Redirect(strReturnUrl);
@@ -59,19 +59,19 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
                 return Json(new { IsSuccess = false, message = "请输入密码" });
             }
 
-            UserInfo userInfo = new UserInfo();
-            userInfo = UserInfoManager.Get(userName, password);
-            if (userInfo == null)
+            UserModel user = new UserModel();
+            user = UserManager.Get(userName, password);
+            if (user == null)
             {
                 return Json(new { IsSuccess = false, message = "用户名或密码错误" });
             }
-            if (!userInfo.IsEnabled)
+            if (!user.IsEnabled)
             {
                 return Json(new { IsSuccess = false, message = "用户已经冻结" });
             }
             else
             {
-                Session.Add("user", userInfo);
+                Session.Add("user", user);
                 return Json(new { IsSuccess = true, message = "登陆成功", action = "/Admin/Index" });
             }
 

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ISEN.MSH.Framework.Service.Base.Service;
-using ISEN.MSH.Nhibernate.Model.User;
+using ISEN.MSH.Nhibernate.Model.Users;
 
 namespace ISEN.MSH.APP.Service.Base.User.Service
 {
-    public class UserInfoManager : GenericManagerBase<UserInfo>, IUserInfoManager
+    public class UserManager : GenericManagerBase<UserModel>, IUserManager
     {
-        public IList<UserInfo> LoadAllByPage(out long total, int page, int rows, string order, string sort)
+        public IList<UserModel> LoadAllByPage(out long total, int page, int rows, string order, string sort)
         {
-            return ((Dao.IUserInfoRepository)(this.CurrentRepository))
+            return ((Dao.IUserRepository)(this.CurrentRepository))
                 .LoadAllByPage(out total, page, rows, order, sort).ToList();
         }
 
@@ -25,20 +25,20 @@ namespace ISEN.MSH.APP.Service.Base.User.Service
             return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(key, "MD5");
         }
 
-        public override object Save(UserInfo entity)
+        public override object Save(UserModel entity)
         {
             entity.Password = this.HashCode(entity.Account.ToUpper() + "123456" + entity.CreateTime.ToLongDateString());
             return base.Save(entity);
         }
 
-        public UserInfo Get(string account)
+        public UserModel Get(string account)
         {
-            return ((Dao.IUserInfoRepository)(this.CurrentRepository)).Get(account);
+            return ((Dao.IUserRepository)(this.CurrentRepository)).Get(account);
         }
 
-        public UserInfo Get(string account, string password)
+        public UserModel Get(string account, string password)
         {
-            var entity = ((Dao.IUserInfoRepository)(this.CurrentRepository)).Get(account);
+            var entity = ((Dao.IUserRepository)(this.CurrentRepository)).Get(account);
 
             if (entity != null)
             {
@@ -53,7 +53,7 @@ namespace ISEN.MSH.APP.Service.Base.User.Service
             return entity;
         }
 
-        public void Update(UserInfo entity, string password)
+        public void Update(UserModel entity, string password)
         {
             entity.Password = this.HashCode(entity.Account.ToUpper() + password + entity.CreateTime.ToLongDateString());
             base.Update(entity);

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="ISEN.MSH.Nhibernate.Model"
+                   namespace="ISEN.MSH.Nhibernate.Model.Mails">
+
+  <class name="AttachmentModel" table="T_Attachment">
+    <cache usage="read-write"/>
+    <id name="ID" type="Guid">
+      <column name="AttachmentID" index="PK_Attachment"/>
+      <generator class="assigned" />
+    </id>
+    <property name="Name" type="string">
+      <column name="Name" length="100" not-null="true"/>
+    </property>
+    <property name="Size" type="double">
+      <column name="Size" not-null="true"/>
+    </property>
+
+    <property name="CreateTime" type="DateTime">
+      <column name="CreateTime" not-null="true"/>
+    </property>
+    <property name="UpdateTime" type="DateTime">
+      <column name="UpdateTime" not-null="true"/>
+    </property>
+    
+    <many-to-one name="Mail" column="MailID" class="ISEN.MSH.Nhibernate.Model.Mails.MailModel"
+                      cascade="save-update" foreign-key="FK_Attachment_Mail"/>
+    
+    <many-to-one name="User" column="UserID" class="ISEN.MSH.Nhibernate.Model.Users.UserModel"
+                  cascade="save-update" foreign-key="FK_Attachment_User"/>
+  </class>
+
+</hibernate-mapping>

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using ISEN.MSH.MVC.Controllers.Filters;
 using ISEN.MSH.APP.Service.Base.User.Service;
-using ISEN.MSH.Nhibernate.Model.User;
+using ISEN.MSH.Nhibernate.Model.Users;
 
 namespace ISEN.MSH.MVC.Controllers.AdminController
 {
@@ -11,7 +11,7 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
     public class AdminController : BaseController
     {
 
-        public IUserInfoManager UserInfoManager { get; set; }
+        public IUserManager UserManager { get; set; }
         //
         // GET: /Admin/
         
@@ -27,9 +27,9 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
 
         public ActionResult Info()
         {
-            UserInfo userInfo = new UserInfo();
-            userInfo = Session["user"] as UserInfo;
-            ViewData["userName"] = userInfo.Account;
+            UserModel user = new UserModel();
+            user = Session["user"] as UserModel;
+            ViewData["userName"] = user.Account;
             return PartialView();
         }
 

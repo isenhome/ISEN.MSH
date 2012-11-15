@@ -6,7 +6,8 @@ using Spring.Context;
 using Spring.Context.Support;
 using ISEN.MSH.APP.Service.Base.User.Service;
 using Spring.Web.Mvc;
-using ISEN.MSH.Nhibernate.Model.User;
+using ISEN.MSH.Nhibernate.Model.Users;
+using ISEN.MSH.APP.Service.Mail.Service;
 
 namespace ISEN.MSH.MVC.WEB
 {
@@ -52,13 +53,13 @@ namespace ISEN.MSH.MVC.WEB
         private void SetInitAccount()
         {
             IApplicationContext cxt = ContextRegistry.GetContext();
-            IUserInfoManager manger = (IUserInfoManager)cxt.GetObject("Manager.UserInfo");
-
+            IUserManager manger = (IUserManager)cxt.GetObject("Manager.User");
+            IMailManager mangerFolder = (IMailManager)cxt.GetObject("Manager.Mail");
             const string account = "admin";
             var user = manger.Get(account);
             if (user == null)
             {
-                user = new UserInfo
+                user = new UserModel
                 {
                     Account = account,
                     Name = "管理员",
@@ -68,7 +69,6 @@ namespace ISEN.MSH.MVC.WEB
                 };
                 manger.Save(user);
             }
-
         }
     }
 }

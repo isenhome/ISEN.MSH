@@ -42,15 +42,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonModels\Work.cs" />
-    <Compile Include="Mail\Attachment.cs" />
-    <Compile Include="Mail\Folder.cs" />
-    <Compile Include="Mail\Mail.cs" />
+    <Compile Include="Mails\AttachmentModel.cs" />
+    <Compile Include="Mails\FolderModel.cs" />
+    <Compile Include="Mails\MailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User\UserInfo.cs" />
+    <Compile Include="Users\UserModel.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="User\UserInfo.hbm.xml" />
+    <EmbeddedResource Include="Mails\MailModel.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Users\UserModel.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mails\AttachmentModel.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mails\FolderModel.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

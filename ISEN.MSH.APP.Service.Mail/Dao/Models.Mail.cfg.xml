@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+	<object id="Repository.Mail" type="ISEN.MSH.APP.Service.Mail.Dao.MailRepository, ISEN.MSH.APP.Service.Mail">
+		<property name="HibernateTemplate" ref="HibernateTemplate"/>
+	</object>
+  <object id="Repository.Folder" type="ISEN.MSH.APP.Service.Mail.Dao.FolderRepository, ISEN.MSH.APP.Service.Mail">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="Repository.Attachment" type="ISEN.MSH.APP.Service.Mail.Dao.AttachmentRepository, ISEN.MSH.APP.Service.Mail">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+</objects>

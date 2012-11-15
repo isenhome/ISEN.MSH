@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <objects xmlns="http://www.springframework.net">
-	<object id="Repository.UserInfo" type="ISEN.MSH.APP.Service.Base.User.Dao.UserInfoRepository, ISEN.MSH.APP.Service.Base">
+	<object id="Repository.User" type="ISEN.MSH.APP.Service.Base.User.Dao.UserRepository, ISEN.MSH.APP.Service.Base">
 		<property name="HibernateTemplate" ref="HibernateTemplate"/>
 	</object>
 </objects>

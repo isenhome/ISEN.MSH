@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using ISEN.MSH.Framework.Service.Base.Util;
 using ISEN.MSH.Framework.Service.Base.Dao;
-using ISEN.MSH.Nhibernate.Model.User;
+using ISEN.MSH.Nhibernate.Model.Users;
 
 namespace ISEN.MSH.APP.Service.Base.User.Dao
 {
-    public class UserInfoRepository : RepositoryBase<UserInfo>, IUserInfoRepository
+    public class UserRepository : RepositoryBase<UserModel>, IUserRepository
     {
-        public IQueryable<UserInfo> LoadAllByPage(out long total, int page, int rows, string order, string sort)
+        public IQueryable<UserModel> LoadAllByPage(out long total, int page, int rows, string order, string sort)
         {
             var list = this.LoadAll();
 
@@ -21,7 +21,7 @@ namespace ISEN.MSH.APP.Service.Base.User.Dao
             return list;
         }
         
-        public UserInfo Get(string account)
+        public UserModel Get(string account)
         {
             return this.LoadAll().FirstOrDefault(f => f.Account == account);
         }

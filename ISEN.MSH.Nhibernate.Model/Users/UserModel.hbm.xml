@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-                   assembly="namespace ISEN.MSH.APP.Service.Base"
-                   namespace="namespace ISEN.MSH.APP.Service.Base.User.Model">
+                   assembly="ISEN.MSH.Nhibernate.Model"
+                   namespace="ISEN.MSH.Nhibernate.Model.Users">
 
-  <class name="UserInfo" table="T_UserInfo">
+  <class name="UserModel" table="T_User">
     <cache usage="read-write"/>
     <id name="ID" type="Guid">
-      <column name="UserInfoID" index="PK_UserInfo"/>
+      <column name="UserID" index="PK_User"/>
       <generator class="assigned" />
     </id>
 

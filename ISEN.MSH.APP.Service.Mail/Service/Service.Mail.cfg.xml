@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+	<object id="Manager.Mail" parent="BaseTransactionManager">
+		<property name="Target">
+			<object type="ISEN.MSH.APP.Service.Mail.Service.MailManager, ISEN.MSH.APP.Service.Mail">
+				<property name="CurrentRepository" ref="Repository.Mail"/>
+			</object>
+		</property>
+	</object>
+  <object id="Manager.Folder" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ISEN.MSH.APP.Service.Mail.Service.FolderManager, ISEN.MSH.APP.Service.Mail">
+        <property name="CurrentRepository" ref="Repository.Folder"/>
+      </object>
+    </property>
+  </object>
+  <object id="Manager.Attachment" parent="BaseTransactionManager">
+    <property name="Target">
+      <object type="ISEN.MSH.APP.Service.Mail.Service.AttachmentManager, ISEN.MSH.APP.Service.Mail">
+        <property name="CurrentRepository" ref="Repository.Attachment"/>
+      </object>
+    </property>
+  </object>
+</objects>

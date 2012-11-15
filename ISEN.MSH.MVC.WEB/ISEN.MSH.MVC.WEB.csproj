@@ -415,6 +415,10 @@
       <Project>{7E6BB9FE-E67D-44FB-B0FE-CE12C96473CC}</Project>
       <Name>ISEN.MSH.APP.Service.Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ISEN.MSH.APP.Service.Mail\ISEN.MSH.APP.Service.Mail.csproj">
+      <Project>{98EFA38B-9C8F-4C65-8518-B5962E670C5F}</Project>
+      <Name>ISEN.MSH.APP.Service.Mail</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ISEN.MSH.Framework.Service.Base\ISEN.MSH.Framework.Service.Base.csproj">
       <Project>{C2F980D2-8D22-4731-AF72-5EA4CA7A8D87}</Project>
       <Name>ISEN.MSH.Framework.Service.Base</Name>

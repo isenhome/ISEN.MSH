@@ -6,9 +6,9 @@ using System.Runtime.Serialization;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace ISEN.MSH.Nhibernate.Model.User
+namespace ISEN.MSH.Nhibernate.Model.Users
 {
-    public class UserInfo
+    public class UserModel
     {
         /// <summary>
         /// ID
