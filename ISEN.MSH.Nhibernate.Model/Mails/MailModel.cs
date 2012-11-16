@@ -28,16 +28,34 @@ namespace ISEN.MSH.Nhibernate.Model.Mails
 
         public virtual DateTime ReceiveTime { get; set; }
 
+        /// <summary>
+        /// 是否紧急
+        /// </summary>
         public virtual bool Emergency { get; set; }
 
+        /// <summary>
+        ///  红旗邮件
+        /// </summary>
         public virtual string Flag { get; set; }
 
+        /// <summary>
+        /// 是否有附件
+        /// </summary>
         public virtual bool HasAttachments { get; set; }
 
+        /// <summary>
+        /// 是否是草稿
+        /// </summary>
         public virtual bool Draft { get; set; }
 
+        /// <summary>
+        /// 是否是删除邮件
+        /// </summary>
         public virtual bool Junk { get; set; }
 
+        /// <summary>
+        /// 是否已读
+        /// </summary>
         public virtual bool Seen { get; set; }
 
         public virtual FolderModel Folder { get; set; }

@@ -113,7 +113,7 @@ namespace ISEN.MSH.APP.Service.Mail
                     }
 
                 }
-                catch (Exception ex)
+                catch (System.Exception ex)
                 {
 
                 }

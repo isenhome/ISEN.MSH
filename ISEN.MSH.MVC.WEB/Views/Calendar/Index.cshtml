@@ -98,6 +98,7 @@
             events: [
 				{ id: Guid.NewGuid().ToString("string"), title: 'All Day Event', start: new Date(y, m, 1) },
 				{ id: "idforever", title: 'Long Event', start: new Date(y, m, d - 5), end: new Date(y, m, d - 2) },
+                { id: "idforever", title: 'dateEvent', start: new Date(y, m, d, 10, 0), end: new Date(y, m, d+1, 15, 0), allDay: false },
 				{ id: "asdfsafd", title: 'Repeating Event', start: new Date(y, m, d - 3, 16, 0), allDay: false },
 				{ id: 999, title: 'Repeating Event', start: new Date(y, m, d + 4, 16, 0), allDay: false },
 				{ id: Guid.NewGuid().ToString("string"), title: 'Meeting', start: new Date(y, m, d, 10, 30), allDay: false },

@@ -2,18 +2,20 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{98EFA38B-9C8F-4C65-8518-B5962E670C5F}</ProjectGuid>
+    <ProjectGuid>{CD1AFF70-A8D3-40A6-9356-55D59205D91C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ISEN.MSH.APP.Service.Mail</RootNamespace>
-    <AssemblyName>ISEN.MSH.APP.Service.Mail</AssemblyName>
+    <RootNamespace>ISEN.MSH.APP.Service.NUnit</RootNamespace>
+    <AssemblyName>ISEN.MSH.APP.Service.NUnit</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,7 +24,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,19 +33,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common.Logging, Version=2.1.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Common.Logging">
       <HintPath>..\packages\Common.Logging.2.1.1\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.1.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="LumiSoft.Net">
-      <HintPath>..\packages\LumiSoft\LumiSoft.Net.dll</HintPath>
+    <Reference Include="LinFu.DynamicProxy">
+      <HintPath>..\packages\NHibernate.LinFu.3.1.0.4000\lib\Net35\LinFu.DynamicProxy.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.1.0.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu">
+      <HintPath>..\packages\NHibernate.LinFu.3.1.0.4000\lib\Net35\NHibernate.ByteCode.LinFu.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
@@ -59,9 +67,14 @@
     <Reference Include="Spring.Data.NHibernate31">
       <HintPath>..\packages\Spring.Data.NHibernate31.1.3.2\lib\net40\Spring.Data.NHibernate31.dll</HintPath>
     </Reference>
+    <Reference Include="Spring.Web">
+      <HintPath>..\packages\Spring.Web.1.3.2\lib\net40\Spring.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web.Mvc">
+      <HintPath>..\packages\Spring.Web.Mvc.1.3.2\lib\net40\Spring.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,42 +82,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Dao\IMailRepository.cs" />
-    <Compile Include="Dao\MailRepository.cs" />
-    <Compile Include="Dao\IFolderRepository.cs" />
-    <Compile Include="Dao\FolderRepository.cs" />
-    <Compile Include="Dao\AttachmentRepository.cs" />
-    <Compile Include="Dao\IAttachmentRepository.cs" />
-    <Compile Include="Exception\MailException.cs" />
-    <Compile Include="Filter\MailFilterAttribute.cs" />
-    <Compile Include="Nunit\TestMail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\IMailManager.cs" />
-    <Compile Include="Service\MailManager.cs" />
-    <Compile Include="Service\IFolderManager.cs" />
-    <Compile Include="Service\FolderManager.cs" />
-    <Compile Include="Service\AttachmentManager.cs" />
-    <Compile Include="Service\IAttachmentManager.cs" />
-    <Compile Include="Util\XMLMailUtil.cs" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <EmbeddedResource Include="Service\Service.Mail.cfg.xml" />
-    <EmbeddedResource Include="Dao\Models.Mail.cfg.xml" />
+    <Compile Include="TestMail.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ISEN.MSH.APP.Service.Base\ISEN.MSH.APP.Service.Base.csproj">
+      <Project>{7E6BB9FE-E67D-44FB-B0FE-CE12C96473CC}</Project>
+      <Name>ISEN.MSH.APP.Service.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISEN.MSH.APP.Service.Mail\ISEN.MSH.APP.Service.Mail.csproj">
+      <Project>{98EFA38B-9C8F-4C65-8518-B5962E670C5F}</Project>
+      <Name>ISEN.MSH.APP.Service.Mail</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ISEN.MSH.Framework.Service.Base\ISEN.MSH.Framework.Service.Base.csproj">
       <Project>{C2F980D2-8D22-4731-AF72-5EA4CA7A8D87}</Project>
       <Name>ISEN.MSH.Framework.Service.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ISEN.MSH.Nhibernate.Model\ISEN.MSH.Nhibernate.Model.csproj">
-      <Project>{39A6C14E-7388-4D19-8DE1-5A24CB22D92B}</Project>
-      <Name>ISEN.MSH.Nhibernate.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
