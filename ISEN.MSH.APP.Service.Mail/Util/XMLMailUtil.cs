@@ -8,6 +8,7 @@ using System.Runtime.Remoting.Proxies;
 using System.Runtime.Remoting.Messaging;
 using ISEN.MSH.APP.Service.Mail.Exception;
 using ISEN.MSH.APP.Service.Mail.Filter;
+using Spring.Aop.Framework;
 
 namespace ISEN.MSH.APP.Service.Mail.Util
 {
@@ -19,21 +20,12 @@ namespace ISEN.MSH.APP.Service.Mail.Util
         {
             if (entity == null)
             {
-                entity = new XMLMailUtil();
+                ProxyFactory factory = new ProxyFactory(new XMLMailUtil());
+                factory.AddAdvice(new AroundAdvice());
+                entity = (XMLMailUtil)factory.GetProxy();
             }
             return entity;
         }
-
-
-
-            //ICompanyManager target = new CompanyManager() { Dao = new CompanyDao(), UserName = "admin" };
-            
-            //ProxyFactory factory = new ProxyFactory(target);
-            //factory.AddAdvice(new AroundAdvice());
-
-            //ICompanyManager manager = (ICompanyManager)factory.GetProxy();
-
-
 
         public XMLMailUtil()
         {

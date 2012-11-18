@@ -15,16 +15,18 @@ namespace ISEN.MSH.APP.Service.Mail.Filter
         public object Invoke(IMethodInvocation invocation)
         {
             //拦截Save方法
-            //if (invocation.Method.Name == "Save")
-            //{
-            //    ICompanyManager target = (ICompanyManager)invocation.Target;
+            switch (invocation.Method.Name)
+            {
+                case "SetPop3":
+                case "SetAttachment":
+                case "SetImap":
+                    XMLMailUtil.GetEntity().CheckConfFile();
+                    break;
+                default:
+                    break;
+            }
+            return invocation.Proceed();
 
-            //    return manager.IsPass(target.UserName) ? invocation.Proceed() : null;
-            //}
-            //else
-            //{
-            //    return invocation.Proceed();
-            //}
         }
     }
 }
