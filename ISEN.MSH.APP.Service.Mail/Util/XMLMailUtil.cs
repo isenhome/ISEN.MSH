@@ -12,17 +12,17 @@ using Spring.Aop.Framework;
 
 namespace ISEN.MSH.APP.Service.Mail.Util
 {
-    public class XMLMailUtil
+    public class XMLMailUtil : IXMLMailUtil
     {
-        private static XMLMailUtil entity;
+        private static IXMLMailUtil entity;
 
-        public static XMLMailUtil GetEntity()
+        public static IXMLMailUtil GetEntity()
         {
             if (entity == null)
             {
                 ProxyFactory factory = new ProxyFactory(new XMLMailUtil());
                 factory.AddAdvice(new AroundAdvice());
-                entity = (XMLMailUtil)factory.GetProxy();
+                entity = (IXMLMailUtil)factory.GetProxy();
             }
             return entity;
         }

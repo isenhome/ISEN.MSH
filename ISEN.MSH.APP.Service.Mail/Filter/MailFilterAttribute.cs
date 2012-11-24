@@ -14,7 +14,8 @@ namespace ISEN.MSH.APP.Service.Mail.Filter
     {
         public object Invoke(IMethodInvocation invocation)
         {
-            //拦截Save方法
+            System.Console.WriteLine(invocation.Method.Name);
+            //拦截方法
             switch (invocation.Method.Name)
             {
                 case "SetPop3":
