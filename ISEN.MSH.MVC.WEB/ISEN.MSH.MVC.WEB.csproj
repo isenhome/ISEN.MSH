@@ -205,6 +205,7 @@
     <Content Include="Content\images\whiteflag.png" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\AdchinaJson.js" />
     <Content Include="Scripts\Contextmenu\js\AeroWindow-Contextmenu.js" />
     <Content Include="Scripts\Contextmenu\skins\default\AeroWindow-Contextmenu.css" />
     <Content Include="Scripts\Contextmenu\skins\default\contextmenu\icons\Application.png" />
