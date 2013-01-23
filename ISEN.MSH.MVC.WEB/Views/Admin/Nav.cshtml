@@ -70,6 +70,16 @@
             <li><a href="#">Users and Permissions</a></li>
         </ul>
     </li>
+    <li><a href="#" class="nav-top-item">报表</a>
+        <ul>
+            <li>@Html.ActionLink("FusionCharts", "index", "Report")</li>
+            <li>@Html.ActionLink("Flot", "Flot", "Report")</li>
+            <li>@Html.ActionLink("CompareJson", "CompareJson", "Report")</li>
+        </ul>
+    </li>
+    <li>@Html.ActionLink("JqueryTable", "index", "JqueryTable", null, new { @class = "nav-top-item no-submenu" })
+        <!-- Add the class "no-submenu" to menu items with no sub menu -->
+    </li>
 </ul>
 <script type="text/javascript">
     $(".current").removeClass("current");

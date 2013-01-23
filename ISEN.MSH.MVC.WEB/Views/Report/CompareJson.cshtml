@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "CompareJson";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section head{
+<style type="text/css">
+    .change{font-weight:700}
+    .remove{color:red}
+</style>
+<script type="text/javascript" src="@Url.Content("~/Scripts/AdchinaJson.js")"></script>
+    <script type="text/javascript">
+        $().ready(function () {
+            var jsonData1 = { ext: 'ext', summary: [{ sum0: 'sum0' }, { sum0: 'sum1' }, { sum0: 'sum3'}], Title: 'Sjr1', Content: 'Library1' };
+            var jsonData2 = { Title: 'Sjr1', Content: 'Library1', summary: [{ sum0: 'sum0' }, { sum0: 'sum1' }, { sum0: 'sum2'}], more: 'more' };
+            var strjson3 = AdchinaJson.Json2Str(jsonData1);
+            var strjson4 = AdchinaJson.Json2Str(jsonData2);
+            $("#json3").append("<h3>" + strjson3 + "</h3>");
+            $("#json4").append("<h3>" + strjson4 + "</h3>");
+
+            AdchinaJson.Getdifferent(jsonData1, jsonData2);
+            var strjson1 = AdchinaJson.Json2Str(jsonData1);
+            var strjson2 = AdchinaJson.Json2Str(jsonData2);
+            $("#json1").append("<h3>" + strjson1 + "</h3>");
+            $("#json2").append("<h3>" + strjson2 + "</h3>");
+
+        });
+    </script>
+}
+
+<h2>CompareJson</h2>
+<div class="clear"></div>
+<h3>原json字符串</h3>
+<div id="json3"></div>
+<div id="json4"></div>
+<div class="clear"></div>
+<h3>对比后json字符串</h3>
+<div id="json1"></div>
+<div id="json2"></div>
+

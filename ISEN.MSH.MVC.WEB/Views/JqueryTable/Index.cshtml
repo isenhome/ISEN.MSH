@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section head{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').dataTable({
+             "bServerSide": true,
+             "bPaginate": true,                      //是否分页。
+             "bProcessing": true,                    //当datatable获取数据时候是否显示正在处理提示信息。
+             "bFilter": false,                       //是否使用内置的过滤功能。
+             "bLengthChange": true,                  //是否允许用户自定义每页显示条数。
+             "sPaginationType": "full_numbers",      //分页样式
+             "aoColumns": [{ "sTitle": "ID", "sClass": "w50", "bSortable": false },
+                               { "sTitle": "广告主", "sClass": "w100", "bSortable": false },
+                               { "sTitle": "广告主1", "sClass": "w100", "bSortable": false },
+                               { "sTitle": "总预算", "sClass": "w101", "bSortable": false }],
+             "sAjaxSource":"@Url.Action("GetData", "JqueryTable")"
+                
+            });
+        });
+    </script>
+    <script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/DataTables/media/js/jquery.dataTables.js")"></script>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/DataTables/media/css/jquery.dataTables.css")" />
+}
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+    <thead>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+    </tfoot>
+</table>

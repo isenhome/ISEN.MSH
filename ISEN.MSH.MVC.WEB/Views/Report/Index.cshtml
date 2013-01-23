@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section head{
+    <script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/FusionCharts/FusionCharts.js")"></script>
+    <script language="javascript" type="text/javascript">
+        function SetDataForCharts() {
+            //柱状图
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetData","Report")',
+                contentType: "application/json",
+                datatype: "json",
+                success: function (response) {
+                    var val = response.d;
+                    var chart = new FusionCharts('@Url.Content("~/Scripts/FusionCharts/Column3D.swf")', "newChart", "1000", "600", "0", "1");
+                    chart.setDataXML(val);
+                    chart.render("divColumn3DChart");
+                }
+            });
+        }
+        $().ready(function(){
+            SetDataForCharts();
+        });
+    </script>
+}
+
+<div id="divColumn3DChart""></div>
