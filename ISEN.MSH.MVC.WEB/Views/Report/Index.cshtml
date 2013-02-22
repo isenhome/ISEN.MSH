@@ -4,6 +4,8 @@
 }
 @section head{
     <script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/FusionCharts/FusionCharts.js")"></script>
+    <script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/FusionCharts/FusionMaps.js")"></script>
+
     <script language="javascript" type="text/javascript">
         function SetDataForCharts() {
             //柱状图
@@ -20,10 +22,28 @@
                 }
             });
         }
+        function SetDataForMap() {
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetMapData","Report")',
+                contentType: "application/json",
+                datatype: "json",
+                success: function (response) {
+                    var val = response.d;
+                    var myChart = new FusionMaps('@Url.Content("~/Scripts/FusionCharts/FCMap_China2.swf")', "Map", "600", "400", "0", "0");
+                    myChart.setDataXML(val);
+                    myChart.render("divMapChart");
+                }
+            });
+        }
         $().ready(function(){
             SetDataForCharts();
+            SetDataForMap();
         });
     </script>
+
 }
 
 <div id="divColumn3DChart""></div>
+<div id="divMapChart"></div>
