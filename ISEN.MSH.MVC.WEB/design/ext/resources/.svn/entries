@@ -1,0 +1,60 @@
+8
+
+dir
+783
+svn://192.168.1.5/PLATFORM/WebRoot/js/ext/resources
+svn://192.168.1.5
+
+
+
+2010-10-25T01:34:50.468750Z
+750
+zhangwx
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+fed0a1ac-4f6c-4744-bbc7-5270fd311917
+
+charts.swf
+file
+
+
+
+
+2010-10-26T09:07:56.925600Z
+59c6e2c9ae7de87f11dd3db3336de8b6
+2010-10-25T01:34:50.468750Z
+750
+zhangwx
+has-props
+
+images
+dir
+
+css
+dir
+
+expressinstall.swf
+file
+
+
+
+
+2010-10-26T09:07:56.935600Z
+8c4bdc47410fc7c000dcd1655e2f3a7a
+2010-10-25T01:34:50.468750Z
+750
+zhangwx
+has-props
+
