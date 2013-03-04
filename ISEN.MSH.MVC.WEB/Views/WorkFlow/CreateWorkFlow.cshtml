@@ -16,49 +16,71 @@
         </div>
     </div>
     <!-- End .content-box-header -->
-    <style type="text/css">
-        .tool
-        {
-            width: 50px;
-            height: 50px;
-            background-color: #57a000;
-            float: left;
-            margin: 10px;
-            border-width: 2px;
-            border-color: #57a000;
-        }
-        .tools
-        {
-            height: 100px;
-        }
-        .desginer
-        {
-            width: 100%;
-            height: 500px;
-            background-color: #e5e5e5;
-        }
-        .active
-        {
-            background-color: #ffffff;
-        }
-    </style>
     <div class="content-box-content">
         <div class="tab-content default-tab" id="tab1">
+            <style type="text/css">
+                .tool
+                {
+                    width: 50px;
+                    height: 50px;
+                    background-color: #57a000;
+                    float: left;
+                    margin: 10px;
+                    border-width: 2px;
+                    border-color: #57a000;
+                }
+                .tools
+                {
+                    height: 100px;
+                }
+                .desginer
+                {
+                    width: 100%;
+                    height: 500px;
+                    background-color: #e5e5e5;
+                    overflow: auto;
+                }
+                .active
+                {
+                    background-color: #ffffff;
+                }
+                .element
+                {
+                    background-color: red;
+                    width: 100px;
+                    height: 100px;
+                    position: absolute;
+                    z-index: 100;
+                }
+                .testline
+                {
+                    width:100px;
+                    height:2px;
+                    background-color:Red;
+                    -webkit-transform: rotate(45deg);
+                    -moz-transform: rotate(45deg);
+                    -o-transform: rotate(45deg);
+                }
+            </style>
+            <!--filter: progid:DXImageTransform.Microsoft.Matrix(M11=cos(45),M12=-sin(45),M21=sin(45),M22=cos(45),SizingMethod='auto expand');-->
             <div class="tools">
-                <div class="tool content-box active">
-                    启示
+                <div class="tool content-box active" data_type="start">
+                    启动
                 </div>
-                <div class="tool content-box">
+                <div class="tool content-box" data_type="stop">
                     结束
                 </div>
-                <div class="tool content-box">
+                <div class="tool content-box" data_type="split">
                     分支
                 </div>
-                <div class="tool content-box">
+                <div class="tool content-box" data_type="combine">
                     合并
                 </div>
-                <div class="tool content-box">
+                <div class="tool content-box" data_type="choose">
                     选择
+                </div>
+                <div class="tool content-box" data_type="line">
+                    线
                 </div>
                 <script type="text/javascript">
                     $(".tool").click(function () {
@@ -68,8 +90,34 @@
                 </script>
             </div>
             <div id="desginer" class="desginer content-box">
-                
+                <div class="testline" style="background-color:red"></div>
             </div>
+            <script type="text/javascript">
+                var point = { x: 0, y: 0, click: false };
+                $("#desginer").click(function (e) {
+                    if (e.target.className == "element") return;
+                    if ($(".tools .active").attr("data_type") == "line") {
+                        point.x = e.offetX;
+                        point.y = e.offetY;
+                        point.click = true;
+                    }
+                    if ($(".tools .active").attr("data_type") == "start") {
+                        var element = $("<div class=\"element\"></div>");
+                        element.css({ "left": e.clientX + $(document).scrollLeft(), "top": e.clientY + $(document).scrollTop() });
+                        $(this).append(element);
+                        element.click(function () {
+                            
+                        });
+                    }
+                });
+                $("#desginer").mousemove(function (e) {
+                    if ($(".tools .active").attr("data_type") == "line") {
+                        var element = $("<div class=\"point\"></div>");
+                        element.css({ "left": e.clientX + $(document).scrollLeft(), "top": e.clientY + $(document).scrollTop(),"background-color":"red","width":"2px","height":"2px","position": "absolute" });
+                        $("#desginer").append(element);
+                    }
+                });
+            </script>
         </div>
         <!-- End #tab1 -->
     </div>
