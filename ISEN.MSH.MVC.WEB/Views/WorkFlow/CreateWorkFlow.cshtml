@@ -3,6 +3,28 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 @section head{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myflow-min/lib/raphael-min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myflow-min/myflow.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myflow-min/myflow.jpdl3.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myflow-min/myflow.editors.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#myflow')
+				.myflow(
+						{
+						    basePath: "",
+						    restore: eval("({states:{rect1:{type:'start',text:{text:'开始'}, attr:{ x:384, y:10, width:101, height:50}, props:{text:{value:'开始'},temp1:{value:''},temp2:{value:''}}},rect2:{type:'task',text:{text:'任务1'}, attr:{ x:386, y:116, width:100, height:50}, props:{text:{value:'任务1'},temp1:{value:''},temp2:{value:''},assignee:{value:''},form:{value:''},desc:{value:''}}},rect3:{type:'fork',text:{text:'分支'}, attr:{ x:384, y:209, width:103, height:50}, props:{text:{value:'分支'},temp1:{value:''},temp2:{value:''}}},rect4:{type:'task',text:{text:'任务2'}, attr:{ x:192, y:317, width:100, height:50}, props:{text:{value:'任务2'},temp1:{value:''},temp2:{value:''},assignee:{value:''},form:{value:''},desc:{value:''}}},rect5:{type:'task',text:{text:'任务3'}, attr:{ x:385, y:317, width:100, height:50}, props:{text:{value:'任务3'},temp1:{value:''},temp2:{value:''},assignee:{value:''},form:{value:''},desc:{value:''}}},rect6:{type:'task',text:{text:'任务4'}, attr:{ x:556, y:320, width:100, height:50}, props:{text:{value:'任务4'},temp1:{value:''},temp2:{value:''},assignee:{value:''},form:{value:''},desc:{value:''}}},rect7:{type:'join',text:{text:'合并'}, attr:{ x:386, y:416, width:103, height:50}, props:{text:{value:'合并'},temp1:{value:''},temp2:{value:''}}},rect8:{type:'end',text:{text:'结束'}, attr:{ x:382, y:632, width:107, height:50}, props:{text:{value:'结束'},temp1:{value:''},temp2:{value:''}}},rect9:{type:'task',text:{text:'任务5'}, attr:{ x:384, y:528, width:100, height:50}, props:{text:{value:'任务5'},temp1:{value:''},temp2:{value:''},assignee:{value:''},form:{value:''},desc:{value:''}}}},paths:{path10:{from:'rect1',to:'rect2', dots:[],text:{text:'TO 任务1'},textPos:{x:37,y:-4}, props:{text:{value:''}}},path11:{from:'rect2',to:'rect3', dots:[],text:{text:'TO 分支'},textPos:{x:56,y:-1}, props:{text:{value:''}}},path12:{from:'rect3',to:'rect5', dots:[],text:{text:'TO 任务3'},textPos:{x:24,y:-5}, props:{text:{value:''}}},path13:{from:'rect5',to:'rect7', dots:[],text:{text:'TO 合并'},textPos:{x:41,y:8}, props:{text:{value:''}}},path14:{from:'rect7',to:'rect9', dots:[],text:{text:'TO 任务5'},textPos:{x:36,y:-5}, props:{text:{value:''}}},path15:{from:'rect9',to:'rect8', dots:[],text:{text:'TO 结束'},textPos:{x:32,y:0}, props:{text:{value:''}}},path16:{from:'rect3',to:'rect4', dots:[{x:244,y:232}],text:{text:'TO 任务2'},textPos:{x:0,y:-10}, props:{text:{value:'TO 任务2'}}},path17:{from:'rect4',to:'rect7', dots:[{x:242,y:435}],text:{text:'TO 合并'},textPos:{x:-3,y:17}, props:{text:{value:'TO 合并'}}},path18:{from:'rect3',to:'rect6', dots:[{x:607,y:234}],text:{text:'TO 任务4'},textPos:{x:0,y:-10}, props:{text:{value:'TO 任务4'}}},path19:{from:'rect6',to:'rect7', dots:[{x:607,y:439}],text:{text:'TO 合并'},textPos:{x:-8,y:16}, props:{text:{value:'TO 合并'}}}},props:{props:{name:{value:'新建流程'},key:{value:''},desc:{value:''}}}})"),
+						    tools: {
+						        save: {
+						            onclick: function (data) {
+						                alert('save:\n' + data);
+						            }
+						        }
+						    }
+						});
+
+        });
+    </script>
 }
 <div class="content-box" id="usersetting">
     <!-- Start Content Box -->
@@ -18,104 +40,63 @@
     <!-- End .content-box-header -->
     <div class="content-box-content">
         <div class="tab-content default-tab" id="tab1">
-            <style type="text/css">
-                .tool
-                {
-                    width: 50px;
-                    height: 50px;
-                    background-color: #57a000;
-                    float: left;
-                    margin: 10px;
-                    border-width: 2px;
-                    border-color: #57a000;
-                }
-                .tools
-                {
-                    height: 100px;
-                }
-                .desginer
-                {
-                    width: 100%;
-                    height: 500px;
-                    background-color: #e5e5e5;
-                    overflow: auto;
-                }
-                .active
-                {
-                    background-color: #ffffff;
-                }
-                .element
-                {
-                    background-color: red;
-                    width: 100px;
-                    height: 100px;
-                    position: absolute;
-                    z-index: 100;
-                }
-                .testline
-                {
-                    width:100px;
-                    height:2px;
-                    background-color:Red;
-                    -webkit-transform: rotate(45deg);
-                    -moz-transform: rotate(45deg);
-                    -o-transform: rotate(45deg);
-                }
-            </style>
-            <!--filter: progid:DXImageTransform.Microsoft.Matrix(M11=cos(45),M12=-sin(45),M21=sin(45),M22=cos(45),SizingMethod='auto expand');-->
-            <div class="tools">
-                <div class="tool content-box active" data_type="start">
-                    启动
+            <div id="myflow_tools" style="position:fixed; top: 10; left: 10; background-color: #fff;
+                width: 70px; cursor: default; padding: 3px;" class="ui-widget-content">
+                <div id="myflow_tools_handle" style="text-align: center;" class="ui-widget-header">
+                    工具集</div>
+                <div class="node" id="myflow_save">
+                    <img src="/scripts/myflow-min/img/save.gif" />&nbsp;&nbsp;保存</div>
+                <div>
+                    <hr />
                 </div>
-                <div class="tool content-box" data_type="stop">
-                    结束
+                <div class="node selectable" id="pointer">
+                    <img src="/scripts/myflow-min/img/select16.gif" />&nbsp;&nbsp;选择</div>
+                <div class="node selectable" id="path">
+                    <img src="/scripts/myflow-min/img/16/flow_sequence.png" />&nbsp;&nbsp;转换</div>
+                <div>
+                    <hr />
                 </div>
-                <div class="tool content-box" data_type="split">
-                    分支
-                </div>
-                <div class="tool content-box" data_type="combine">
-                    合并
-                </div>
-                <div class="tool content-box" data_type="choose">
-                    选择
-                </div>
-                <div class="tool content-box" data_type="line">
-                    线
-                </div>
-                <script type="text/javascript">
-                    $(".tool").click(function () {
-                        $(".tool").removeClass("active");
-                        $(this).addClass("active");
-                    });
-                </script>
+                <div class="node state" id="start" type="start">
+                    <img src="/scripts/myflow-min/img/16/start_event_empty.png" />&nbsp;&nbsp;开始</div>
+                <div class="node state" id="state" type="state">
+                    <img src="/scripts/myflow-min/img/16/task_empty.png" />&nbsp;&nbsp;状态</div>
+                <div class="node state" id="task" type="task">
+                    <img src="/scripts/myflow-min/img/16/task_empty.png" />&nbsp;&nbsp;任务</div>
+                <div class="node state" id="fork" type="fork">
+                    <img src="/scripts/myflow-min/img/16/gateway_parallel.png" />&nbsp;&nbsp;分支</div>
+                <div class="node state" id="join" type="join">
+                    <img src="/scripts/myflow-min/img/16/gateway_parallel.png" />&nbsp;&nbsp;合并</div>
+                <div class="node state" id="end" type="end">
+                    <img src="/scripts/myflow-min/img/16/end_event_terminate.png" />&nbsp;&nbsp;结束</div>
+                <div class="node state" id="end-cancel" type="end-cancel">
+                    <img src="/scripts/myflow-min/img/16/end_event_cancel.png" />&nbsp;&nbsp;取消</div>
+                <div class="node state" id="end-error" type="end-error">
+                    <img src="/scripts/myflow-min/img/16/end_event_error.png" />&nbsp;&nbsp;错误</div>
             </div>
-            <div id="desginer" class="desginer content-box">
-                <div class="testline" style="background-color:red"></div>
+            <div id="myflow_props" style="position: absolute; top: 30; right: 50; background-color: #fff;
+                width: 220px; padding: 3px;" class="ui-widget-content">
+                <div id="myflow_props_handle" class="ui-widget-header">
+                    属性</div>
+                <table border="1" width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            aaa
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            aaa
+                        </td>
+                    </tr>
+                </table>
+                <div>
+                    &nbsp;</div>
+            </div>
+            <div id="myflow"  >
             </div>
             <script type="text/javascript">
-                var point = { x: 0, y: 0, click: false };
-                $("#desginer").click(function (e) {
-                    if (e.target.className == "element") return;
-                    if ($(".tools .active").attr("data_type") == "line") {
-                        point.x = e.offetX;
-                        point.y = e.offetY;
-                        point.click = true;
-                    }
-                    if ($(".tools .active").attr("data_type") == "start") {
-                        var element = $("<div class=\"element\"></div>");
-                        element.css({ "left": e.clientX + $(document).scrollLeft(), "top": e.clientY + $(document).scrollTop() });
-                        $(this).append(element);
-                        element.click(function () {
-                            
-                        });
-                    }
-                });
-                $("#desginer").mousemove(function (e) {
-                    if ($(".tools .active").attr("data_type") == "line") {
-                        var element = $("<div class=\"point\"></div>");
-                        element.css({ "left": e.clientX + $(document).scrollLeft(), "top": e.clientY + $(document).scrollTop(),"background-color":"red","width":"2px","height":"2px","position": "absolute" });
-                        $("#desginer").append(element);
-                    }
+                $(document).ready(function () {
+                    $("#myflow svg").css({ "height": "100%", "width": "100%"});
                 });
             </script>
         </div>
