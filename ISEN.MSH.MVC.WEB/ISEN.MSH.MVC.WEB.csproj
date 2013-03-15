@@ -129,6 +129,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\common.css" />
     <Content Include="Content\css\invalid.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\style.css" />

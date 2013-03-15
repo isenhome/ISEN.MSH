@@ -38,65 +38,87 @@
         </div>
     </div>
     <!-- End .content-box-header -->
-    <div class="content-box-content">
-        <div class="tab-content default-tab" id="tab1">
-            <div id="myflow_tools" style="position:fixed; top: 10; left: 10; background-color: #fff;
-                width: 70px; cursor: default; padding: 3px;" class="ui-widget-content">
-                <div id="myflow_tools_handle" style="text-align: center;" class="ui-widget-header">
-                    工具集</div>
-                <div class="node" id="myflow_save">
-                    <img src="/scripts/myflow-min/img/save.gif" />&nbsp;&nbsp;保存</div>
-                <div>
-                    <hr />
+    <div class="content-box-content" id="content_box">
+        <div class="tab-content default-tab " style="min-width: 1000px;min-height:800px;" id="tab1">
+            <div style="width: 20%; height: 800px; float: left;padding:20px;">
+                <div style="width: 100%; ">
+                    <div class="radius6 " id="myflow_tools">
+                        <div id="myflow_tools_handle" class="content-box-header">
+                            <h3>
+                                工具集</h3>
+                        </div>
+                        <div class="content-box-content" style="background:#f7f7f7 ">
+                            <div class="node" id="myflow_save">
+                                <img src="/scripts/myflow-min/img/save.gif" />&nbsp;&nbsp;保存</div>
+                            <div>
+                                <hr />
+                            </div>
+                            <div class="node selectable" id="pointer">
+                                <img src="/scripts/myflow-min/img/select16.gif" />&nbsp;&nbsp;选择</div>
+                            <div class="node selectable" id="path">
+                                <img src="/scripts/myflow-min/img/16/flow_sequence.png" />&nbsp;&nbsp;转换</div>
+                            <div>
+                                <hr />
+                            </div>
+                            <div class="node state" id="start" type="start">
+                                <img src="/scripts/myflow-min/img/16/start_event_empty.png" />&nbsp;&nbsp;开始</div>
+                            <div class="node state" id="state" type="state">
+                                <img src="/scripts/myflow-min/img/16/task_empty.png" />&nbsp;&nbsp;状态</div>
+                            <div class="node state" id="task" type="task">
+                                <img src="/scripts/myflow-min/img/16/task_empty.png" />&nbsp;&nbsp;任务</div>
+                            <div class="node state" id="fork" type="fork">
+                                <img src="/scripts/myflow-min/img/16/gateway_parallel.png" />&nbsp;&nbsp;分支</div>
+                            <div class="node state" id="join" type="join">
+                                <img src="/scripts/myflow-min/img/16/gateway_parallel.png" />&nbsp;&nbsp;合并</div>
+                            <div class="node state" id="end" type="end">
+                                <img src="/scripts/myflow-min/img/16/end_event_terminate.png" />&nbsp;&nbsp;结束</div>
+                            <div class="node state" id="end-cancel" type="end-cancel">
+                                <img src="/scripts/myflow-min/img/16/end_event_cancel.png" />&nbsp;&nbsp;取消</div>
+                            <div class="node state" id="end-error" type="end-error">
+                                <img src="/scripts/myflow-min/img/16/end_event_error.png" />&nbsp;&nbsp;错误</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="node selectable" id="pointer">
-                    <img src="/scripts/myflow-min/img/select16.gif" />&nbsp;&nbsp;选择</div>
-                <div class="node selectable" id="path">
-                    <img src="/scripts/myflow-min/img/16/flow_sequence.png" />&nbsp;&nbsp;转换</div>
-                <div>
-                    <hr />
+                <div style=" width: 100%;">
+                    <div class="radius6" id="myflow_props">
+                        <div id="myflow_props_handle" class="content-box-header">
+                            <h3>
+                                属性</h3>
+                        </div>
+                        <div class="content-box-content"  style="background:#f7f7f7 ">
+                            <table border="1" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        aaa
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        aaa
+                                    </td>
+                                </tr>
+                            </table>
+                            <div>
+                                &nbsp;</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="node state" id="start" type="start">
-                    <img src="/scripts/myflow-min/img/16/start_event_empty.png" />&nbsp;&nbsp;开始</div>
-                <div class="node state" id="state" type="state">
-                    <img src="/scripts/myflow-min/img/16/task_empty.png" />&nbsp;&nbsp;状态</div>
-                <div class="node state" id="task" type="task">
-                    <img src="/scripts/myflow-min/img/16/task_empty.png" />&nbsp;&nbsp;任务</div>
-                <div class="node state" id="fork" type="fork">
-                    <img src="/scripts/myflow-min/img/16/gateway_parallel.png" />&nbsp;&nbsp;分支</div>
-                <div class="node state" id="join" type="join">
-                    <img src="/scripts/myflow-min/img/16/gateway_parallel.png" />&nbsp;&nbsp;合并</div>
-                <div class="node state" id="end" type="end">
-                    <img src="/scripts/myflow-min/img/16/end_event_terminate.png" />&nbsp;&nbsp;结束</div>
-                <div class="node state" id="end-cancel" type="end-cancel">
-                    <img src="/scripts/myflow-min/img/16/end_event_cancel.png" />&nbsp;&nbsp;取消</div>
-                <div class="node state" id="end-error" type="end-error">
-                    <img src="/scripts/myflow-min/img/16/end_event_error.png" />&nbsp;&nbsp;错误</div>
             </div>
-            <div id="myflow_props" style="position: absolute; top: 30; right: 50; background-color: #fff;
-                width: 220px; padding: 3px;" class="ui-widget-content">
-                <div id="myflow_props_handle" class="ui-widget-header">
-                    属性</div>
-                <table border="1" width="100%" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td>
-                            aaa
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            aaa
-                        </td>
-                    </tr>
-                </table>
-                <div>
-                    &nbsp;</div>
-            </div>
-            <div id="myflow"  >
+            <div style="width: 75%; height: 800px;float: right;padding:20px 0px 20px 0px;">
+                <div class="radius6">
+                    <div class="content-box-header">
+                        <h3>
+                            设计面板</h3>
+                    </div>
+                    <div class="content-box-content"  style="background:#f7f7f7 ">
+                        <div id="myflow">
+                        </div>
+                    </div>
+                </div>
             </div>
             <script type="text/javascript">
                 $(document).ready(function () {
-                    $("#myflow svg").css({ "height": "100%", "width": "100%"});
+                    $("#content_box").css({ "height": $("#myflow svg").css("width") });
                 });
             </script>
         </div>
