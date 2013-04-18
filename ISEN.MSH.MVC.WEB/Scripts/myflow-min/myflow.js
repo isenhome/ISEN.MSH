@@ -113,31 +113,31 @@
     },
     props: {
         attr: {
-//            top: 10,
-//            right: 30
+        //            top: 10,
+        //            right: 30
+    },
+    props: {}
+},
+restore: "",
+activeRects: {
+    rects: [],
+    rectAttr: {
+        stroke: "#ff0000",
+        "stroke-width": 2
+    }
+},
+historyRects: {
+    rects: [],
+    pathAttr: {
+        path: {
+            stroke: "#00ff00"
         },
-        props: {}
-    },
-    restore: "",
-    activeRects: {
-        rects: [],
-        rectAttr: {
-            stroke: "#ff0000",
-            "stroke-width": 2
-        }
-    },
-    historyRects: {
-        rects: [],
-        pathAttr: {
-            path: {
-                stroke: "#00ff00"
-            },
-            arrow: {
-                stroke: "#00ff00",
-                fill: "#00ff00"
-            }
+        arrow: {
+            stroke: "#00ff00",
+            fill: "#00ff00"
         }
     }
+}
 };
 a.util = {
     isLine: function (g, f, e) {
@@ -1147,11 +1147,11 @@ a.editors = {
     }
 };
 a.init = function (x, r) {
-    var v = b(window).width(),
-        e = b(window).height(),
-        y = Raphael(x, v * 1.5, e * 1.5),
-        q = {},
-        g = {};
+    var v = b(window).width();
+    var e = b(window).height();
+    var y = Raphael(x, v * 1.0, e * 1.0);
+    var q = {};
+    var g = {};
     b.extend(true, a.config, r);
     b(document).keydown(function (i) {
         if (!a.config.editable) {
