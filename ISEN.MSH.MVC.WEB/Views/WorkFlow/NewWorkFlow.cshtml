@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "NewWorkFlow";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section head{}
+@Html.Partial("ShortCut")
+<!-- End .clear -->
+<div class="content-box">
+    <!-- Start Content Box -->
+    <div class="content-box-header">
+        <h3>
+            新流程</h3>
+        <ul class="content-box-tabs">
+            <!-- href must be unique and match the id of target div -->
+            <li><a href="#tab2" class="default-tab">Forms</a></li>
+        </ul>
+        <div class="clear">
+        </div>
+    </div>
+    <!-- End .content-box-header -->
+    <div class="content-box-content">
+        <div class="tab-content default-tab" id="tab2">
+            <form action="#" method="post">
+            <fieldset>
+                <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+                <p>
+                    <label>
+                        标题</label>
+                    <input class="text-input small-input" type="text" id="small-input" name="small-input" />
+                    <span class="input-notification success png_bg">Successful message</span>
+                    <!-- Classes for input-notification: success, error, information, attention -->
+                    <br />
+                    <small>A small description of the field</small>
+                </p>
+                <p>
+                    <label>
+                        属性</label>
+                    <p style="padding: 20px; font-size: 13px; border: 1px solid #ccc;">
+                        <span>名称：</span><input class="text-input" type="text" />
+                        <span class="marl20">值：</span><input class="text-input" type="text" />
+                        <span class="marl20">选择类型：</span>
+                        <select>
+                            <option>text</option>
+                        </select>
+                        <a href="javascript:void(0);" onclick="" class="marl20">添加</a></p>
+                </p>
+                <div>
+                    <label>
+                        条件</label>
+                    <div style="padding: 20px; font-size: 13px; border: 1px solid #ccc;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <select>
+                                        <option>请假天数</option>
+                                    </select>
+                                    <select>
+                                        <option>大于</option>
+                                        <option>大于或等于</option>
+                                        <option>小于</option>
+                                        <option>小于或等于</option>
+                                        <option>等于</option>
+                                        <option>不等于</option>
+                                    </select>
+                                    <span class="marl20">值：</span><input class="text-input" type="text" />
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0);" onclick="" class="marl20">添加条件</a>
+                                </td>
+                                <td rowspan="2">
+                                    <span class="marl20">符合条件：</span>
+                                    <select>
+                                        <option>经理</option>
+                                    </select>
+                                    <br />
+                                    <span class="marl20">不符合条件：</span>
+                                    <select>
+                                        <option>经理</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select>
+                                        <option>请假天数</option>
+                                    </select>
+                                    <select>
+                                        <option>大于</option>
+                                        <option>大于或等于</option>
+                                        <option>小于</option>
+                                        <option>小于或等于</option>
+                                        <option>等于</option>
+                                        <option>不等于</option>
+                                    </select>
+                                    <span class="marl20">值：</span><input class="text-input" type="text" />
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0);" onclick="" class="marl20">添加条件</a>
+                                </td>
+                            </tr>
+                        </table>
+                        <span class="marl20">选择审批人：</span>
+                        <select>
+                            <option>经理</option>
+                        </select>
+                        <a href="javascript:void(0);" onclick="" class="marl20">添加</a></div>
+                </div>
+                <p>
+                    <label>
+                        备注</label>
+                    <textarea class="text-input textarea wysiwyg" id="textarea" name="textfield" cols="79"
+                        rows="15"></textarea>
+                </p>
+                <p>
+                    <label>
+                        Medium form input</label>
+                    <input class="text-input medium-input datepicker" type="text" id="medium-input" name="medium-input" />
+                    <span class="input-notification error png_bg">Error message</span>
+                </p>
+                <p>
+                    <label>
+                        Large form input</label>
+                    <input class="text-input large-input" type="text" id="large-input" name="large-input" />
+                </p>
+                <p>
+                    <label>
+                        Checkboxes</label>
+                    <input type="checkbox" name="checkbox1" />
+                    This is a checkbox
+                    <input type="checkbox" name="checkbox2" />
+                    And this is another checkbox
+                </p>
+                <p>
+                    <label>
+                        Radio buttons</label>
+                    <input type="radio" name="radio1" />
+                    This is a radio button<br />
+                    <input type="radio" name="radio2" />
+                    This is another radio button
+                </p>
+                <p>
+                    <label>
+                        This is a drop down list</label>
+                    <select name="dropdown" class="small-input">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                        <option value="option4">Option 4</option>
+                    </select>
+                </p>
+                <p>
+                    <input class="button" type="submit" value="Submit" />
+                </p>
+            </fieldset>
+            <div class="clear">
+            </div>
+            <!-- End .clear -->
+            </form>
+        </div>
+        <!-- End #tab2 -->
+    </div>
+    <!-- End .content-box-content -->
+</div>
+<!-- End .content-box -->

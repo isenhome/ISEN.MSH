@@ -58,5 +58,6 @@ namespace ISEN.MSH.APP.Service.Base.User.Service
             entity.Password = this.HashCode(entity.Account.ToUpper() + password + entity.CreateTime.ToLongDateString());
             base.Update(entity);
         }
+
     }
 }

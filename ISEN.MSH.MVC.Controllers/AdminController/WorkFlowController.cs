@@ -16,5 +16,10 @@ namespace ISEN.MSH.MVC.Controllers.AdminController
             return View();
         }
 
+        public ActionResult NewWorkFlow()
+        {
+            return View();
+        }
+
     }
 }
