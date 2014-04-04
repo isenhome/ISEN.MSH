@@ -7,5 +7,6 @@ namespace ISEN.MSH.APP.DataAccess
 {
     public class Class1
     {
+        //add test confirm
     }
 }
